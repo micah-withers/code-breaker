@@ -1,9 +1,4 @@
 # code-breaker
 
-This is a README file.
-
-I just updated the README.
-
-Me too.
-
-LIES.
+For our project this semester, we propose creating an Android app for the game Mastermind. This is a one- or two-person logic game where the first player places four hidden colored pegs in a line. The second player has to correctly guess the color and location of four pegs in a line. They typically have a fixed number of tries (ten), and the first player provides feedback on each guess. Feedback could include a red token, which means one peg (the specific peg is not indicated) is entirely right, or a white token, which means one peg has the right color but is in the wrong spot. Once the second player has all four pegs the correct color and in the correct spot, they win. If the player cannot guess correctly after ten tries, the first player wins.
+For this project, we would create an interactive multiplayer game for Android devices using Java. The software must allow for real-time competition between two individuals on separate devices and also allow for single-player, offline play. For this to work, we would need to set up a server to mediate communication between devices. Since offline play will be implemented, logical operations would be performed on the client in both single and multiplayer formats. Software will include a graphical user interface.
