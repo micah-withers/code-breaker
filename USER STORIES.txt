@@ -9,7 +9,7 @@ US4: As a user, I want to receive correct feedback on my guesses
 US5: As a user, I want to see the history of my guesses/results 
 	so that I can remember what I’ve done.
 US6: As a user, I want to make my own puzzles 
-	so that I can play two-player.
+	so that I can send it to my friend.
 US7: As a user, I want to send feedback to my friend’s guesses 
 	so that they know how much is right.
 US8: As a user, I want to have the game validate my feedback in two-player 
