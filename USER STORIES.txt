@@ -16,3 +16,5 @@ US8: As a user, I want to send feedback to my friend’s guesses
 	so that they know how much is right.
 US9: As a user, I want to have the game validate my feedback in two-player 
 	so that my friend is sure to get accurate results.
+US10: As a user, I want simple navigation between main screens, with helpful/catchy graphics 
+	so that the app is more user friendly.
