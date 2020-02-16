@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".Main3Activity">
 
-
     <ImageView
         android:id="@+id/masterPeg1"
         android:layout_width="72dp"
