@@ -16,7 +16,7 @@
         android:contentDescription="@string/masterPegs"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/BLUE" />
+        app:srcCompat="@drawable/blue" />
 
     <ImageView
         android:id="@+id/masterPeg2"
@@ -30,7 +30,7 @@
         app:layout_constraintBottom_toTopOf="@+id/generate"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/RED" />
+        app:srcCompat="@drawable/red" />
 
     <ImageView
         android:id="@+id/masterPeg3"
@@ -42,7 +42,7 @@
         android:contentDescription="@string/masterPegs"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/YELLOW" />
+        app:srcCompat="@drawable/yellow" />
 
     <ImageView
         android:id="@+id/masterPeg4"
@@ -54,7 +54,7 @@
         android:contentDescription="@string/masterPegs"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ORANGE" />
+        app:srcCompat="@drawable/orange" />
 
     <Button
         android:id="@+id/generate"
