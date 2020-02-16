@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Code Breaker</string>
+    <string name="playButton">Play</string>
 </resources>
