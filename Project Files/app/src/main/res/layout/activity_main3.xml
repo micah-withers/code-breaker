@@ -6,4 +6,53 @@
     android:layout_height="match_parent"
     tools:context=".Main3Activity">
 
+
+    <ImageView
+        android:id="@+id/masterPeg1"
+        android:layout_width="72dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="16dp"
+        android:contentDescription="@string/masterPegs"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/BLUE" />
+
+    <ImageView
+        android:id="@+id/masterPeg2"
+        android:layout_width="72dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="120dp"
+        android:layout_marginLeft="120dp"
+        android:layout_marginTop="16dp"
+        android:contentDescription="@string/masterPegs"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/RED" />
+
+    <ImageView
+        android:id="@+id/masterPeg3"
+        android:layout_width="72dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="220dp"
+        android:layout_marginLeft="220dp"
+        android:layout_marginTop="16dp"
+        android:contentDescription="@string/masterPegs"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/YELLOW" />
+
+    <ImageView
+        android:id="@+id/masterPeg4"
+        android:layout_width="72dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="320dp"
+        android:layout_marginLeft="320dp"
+        android:layout_marginTop="16dp"
+        android:contentDescription="@string/masterPegs"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ORANGE" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
