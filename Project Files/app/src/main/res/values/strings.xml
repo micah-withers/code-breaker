@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Code Breaker</string>
     <string name="playButton">Play</string>
+    <string name="masterPegs">Placeholder for generated codes to break</string>
 </resources>
