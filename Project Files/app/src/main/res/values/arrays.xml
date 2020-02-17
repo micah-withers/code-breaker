@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="pegs">
+        <item name="blue">@drawable/blue</item>
+        <item name="green">@drawable/green</item>
+        <item name="orange">@drawable/orange</item>
+        <item name="pink">@drawable/pink</item>
+        <item name="red">@drawable/red</item>
+        <item name="yellow">@drawable/yellow</item>
+    </array>
+</resources>
