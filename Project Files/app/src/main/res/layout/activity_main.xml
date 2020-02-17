@@ -22,25 +22,24 @@
 
     <Button
         android:id="@+id/play1Button"
-        android:layout_width="500dp"
-        android:layout_height="600dp"
-        android:layout_marginBottom="170dp"
+        android:layout_width="139dp"
+        android:layout_height="171dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginLeft="56dp"
         android:text="@string/play1Button"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/button3"
-        android:layout_width="200dp"
-        android:layout_height="600dp"
-        android:text="Button"
-        app:layout_constraintBottom_toTopOf="parent"
-        app:layout_constraintTop_toBottomOf="parent"
-        app:layout_constraintVertical_bias="0.555"
-        tools:layout_editor_absoluteX="-24dp" />
+        android:layout_width="136dp"
+        android:layout_height="172dp"
+        android:text="@string/play2Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/play1Button"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
