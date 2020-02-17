@@ -1,5 +1,6 @@
 US1: As a user, I want to see play options such as one or two player modes on game load 
-	so that I can choose which mode to play. 
+	so that I can choose which mode to play. Non-functional buttons will be labeled "COMING SOON".
+	1. On click of "One Player", I want to see a game board
 US2: As a user, I want the game to generate random puzzles for me to guess and reveal the solution 
 	so that I can play single player
 US3: As a user, I want to be able to drag and drop my pins for my guesses 
