@@ -2,11 +2,11 @@ package com.example.codebreaker;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.res.TypedArray;
-import android.graphics.drawable.Drawable;
+//import android.content.res.TypedArray;
+//import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
+//import android.view.View;
+//import android.widget.Button;
 
 import java.util.ArrayList;
 
@@ -26,7 +26,7 @@ public class Main3Activity extends AppCompatActivity {
 //            peg.setVisibility(android.view.View.INVISIBLE);
 //        }
 //
-//        setContentView(R.layout.activity_main3);
+        setContentView(R.layout.activity_main3);
 //
 //        configurePushButton();
 //        pegList.recycle();
