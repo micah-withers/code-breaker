@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Code Breaker</string>
-    <string name="playButton">Play</string>
+    <string name="play1Button">One Player</string>
+    <string name="play2Button">Two Player</string>
     <string name="masterPegs">Placeholder for generated codes to break</string>
     <string name="codeGen">Generate Code</string>
 </resources>
