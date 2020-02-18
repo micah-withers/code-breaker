@@ -29,7 +29,5 @@ public class MainActivityTest {
     @Test
     public void onCreate() {
         onView(withId(R.id.textView)).check(matches(isDisplayed()));
-        onView(withId(R.id.play1Button))
-
     }
 }
