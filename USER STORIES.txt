@@ -1,12 +1,14 @@
 US1: As a user, I want to see play options such as one or two player modes on game load 
 	so that I can choose which mode to play. Non-functional buttons will be labeled "COMING SOON".
 	
-	1. As a user, on click of "One Player", I want to see a game board so that I know the game 
-		loaded correctly.
-	2. As a user, I want to see a taskbar at the bottom of the screen with each colored peg so
+	1. As a user, on click of "One Player", I want to see a game board with 10 rows of holes so that 
+		I have places to put my guesses.
+	2. As a user, I want to scroll up and down the game board so I can each row and revisit my
+		guesses once I have made them.
+	3. As a user, I want to see a taskbar at the bottom of the screen with each colored peg so
 		that I can decide which pegs to place on the board.
-	3. As a user, I want to be able to drag and drop pegs on the game board so that I can visualize
-		my guesses.
+	4. As a user, I want to be able to drag and drop pegs on the game board so that I can make and
+		visualize my guesses.
 	
 US2: As a user, I want the game to generate random puzzles for me to guess and reveal the solution 
 	so that I can play single player
