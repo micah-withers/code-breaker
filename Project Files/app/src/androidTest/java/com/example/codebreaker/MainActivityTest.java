@@ -1,6 +1,6 @@
 package com.example.codebreaker;
 
-import android.content.Intent;
+//import android.content.Intent;
 
 import androidx.test.rule.ActivityTestRule;
 
@@ -15,7 +15,7 @@ import static androidx.test.espresso.assertion.ViewAssertions.matches;
 //import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
-import static androidx.test.espresso.matcher.ViewMatchers.withText;
+//import static androidx.test.espresso.matcher.ViewMatchers.withText;
 
 //import static org.junit.Assert.*;
 
