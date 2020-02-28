@@ -8,11 +8,12 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="365dp"
-        android:layout_height="906dp"
+        android:layout_width="420dp"
+        android:layout_height="965dp"
         android:contentDescription="@string/game_board"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/board" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
