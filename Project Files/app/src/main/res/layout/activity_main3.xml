@@ -6,49 +6,82 @@
     android:layout_height="match_parent"
     tools:context=".Main3Activity">
 
-    <TextView
-        android:id="@+id/box1_3"
-        android:layout_width="55dp"
-        android:layout_height="53dp"
-        android:layout_marginTop="580dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginRight="24dp"
-        android:text="@string/dropBox"
-        app:layout_constraintEnd_toStartOf="@+id/box1_4"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/box1_1"
-        android:layout_width="55dp"
-        android:layout_height="53dp"
-        android:layout_marginTop="580dp"
-        android:text="@string/dropBox"
-        app:layout_constraintEnd_toStartOf="@+id/box1_2"
-        app:layout_constraintHorizontal_bias="0.687"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="top" />
 
-    <TextView
-        android:id="@+id/box1_2"
-        android:layout_width="55dp"
-        android:layout_height="53dp"
-        android:layout_marginTop="580dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginRight="24dp"
-        android:text="@string/dropBox"
-        app:layout_constraintEnd_toStartOf="@+id/box1_3"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/box1_4"
-        android:layout_width="55dp"
-        android:layout_height="53dp"
-        android:layout_marginTop="580dp"
-        android:layout_marginEnd="64dp"
-        android:layout_marginRight="64dp"
-        android:text="@string/dropBox"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="410dp"
+        android:layout_height="648dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/box1_3"
+            android:layout_width="55dp"
+            android:layout_height="53dp"
+            android:layout_marginEnd="28dp"
+            android:layout_marginRight="28dp"
+            android:text="@string/dropBox"
+            android:background="@drawable/highlight"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/box1_4" />
+
+        <TextView
+            android:id="@+id/box1_1"
+            android:layout_width="53dp"
+            android:layout_height="53dp"
+            android:layout_marginStart="56dp"
+            android:layout_marginLeft="56dp"
+            android:text="@string/dropBox"
+            android:background="@drawable/highlight"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/box1_2"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/box1_4"
+            android:layout_width="55dp"
+            android:layout_height="53dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginRight="40dp"
+            android:text="@string/dropBox"
+            android:background="@drawable/highlight"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/box1_2"
+            android:layout_width="55dp"
+            android:layout_height="53dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginRight="20dp"
+            android:text="@string/dropBox"
+            android:background="@drawable/highlight"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/box1_3" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="409dp"
+        android:layout_height="84dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="650dp"></LinearLayout>
 
     <TextView
         android:id="@+id/taskBar1"

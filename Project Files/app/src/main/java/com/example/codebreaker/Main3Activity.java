@@ -4,7 +4,7 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ClipData;
-import android.graphics.drawable.Drawable;
+//import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.DragEvent;
@@ -51,22 +51,33 @@ public class Main3Activity extends AppCompatActivity {
         public boolean onDrag(View v, DragEvent event) {
             int action = event.getAction();
             View view = (View) event.getLocalState();
-            Drawable original = view.getBackground();
+//            Drawable original = v.getBackground();
             switch (action) {
             case DragEvent.ACTION_DRAG_STARTED:
                 // nada
-                view.setBackground(getDrawable(R.drawable.highlight));
+//                original = v.getBackground();
+                v.setVisibility(View.VISIBLE);
+//                v.setBackground(getDrawable(R.drawable.highlight));
                 break;
             case DragEvent.ACTION_DRAG_ENTERED:
                 // something
+//                v.setBackground(getDrawable(R.drawable.highlight));
                 break;
             case DragEvent.ACTION_DROP:
                 v.setBackground(view.getBackground());
                 break;
-            case DragEvent.ACTION_DRAG_ENDED:
+            case DragEvent.ACTION_DRAG_EXITED:
                 // nothing
-                view.setBackground(original);
+//                v.setBackground(original);
+//                if (v.getBackground() == getDrawable(R.drawable.highlight)) {
+//                    v.setVisibility(View.INVISIBLE);
+//                }
                 break;
+            case DragEvent.ACTION_DRAG_ENDED:
+                // idk
+//                if (v.getBackground() == getDrawable(R.drawable.highlight)) {
+//                    v.setVisibility(View.INVISIBLE);
+//                }
             default:
                 break;
             }
