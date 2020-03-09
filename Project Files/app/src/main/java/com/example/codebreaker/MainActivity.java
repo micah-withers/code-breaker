@@ -7,17 +7,24 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.codebreaker.databinding.ActivityMainBinding;
+
 public class MainActivity extends AppCompatActivity {
 
+    private ActivityMainBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        View view = binding.getRoot();
+        setContentView(view);
 
         configurePushButton();
     }
 
     private void configurePushButton(){
+//        binding = ActivityMainBinding.inflate(getLayoutInflater());
+//        Button pushButton = binding.play1Button;
         Button pushButton = findViewById(R.id.play1Button);
         pushButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
