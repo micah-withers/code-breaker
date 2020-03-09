@@ -28,6 +28,6 @@ public class Main3ActivityTest {
 
     @Test
     public void onCreate() {
-        onView(withId(R.id.textView)).check(matches(isDisplayed()));
+
     }
 }
