@@ -7,65 +7,13 @@
     tools:context=".Main3Activity">
 
     <ImageView
-        android:id="@+id/masterPeg1"
-        android:layout_width="72dp"
-        android:layout_height="75dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginLeft="28dp"
-        android:contentDescription="@string/masterPegs"
+        android:id="@+id/imageView"
+        android:layout_width="420dp"
+        android:layout_height="965dp"
+        android:contentDescription="@string/game_board"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.024"
-        app:srcCompat="@drawable/blue" />
-
-    <ImageView
-        android:id="@+id/masterPeg2"
-        android:layout_width="72dp"
-        android:layout_height="75dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
-        android:contentDescription="@string/masterPegs"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/masterPeg1"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.024"
-        app:srcCompat="@drawable/red" />
-
-    <ImageView
-        android:id="@+id/masterPeg3"
-        android:layout_width="72dp"
-        android:layout_height="75dp"
-        android:contentDescription="@string/masterPegs"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/masterPeg4"
-        app:layout_constraintHorizontal_bias="0.558"
-        app:layout_constraintStart_toEndOf="@+id/masterPeg2"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.024"
-        app:srcCompat="@drawable/yellow" />
-
-    <ImageView
-        android:id="@+id/masterPeg4"
-        android:layout_width="72dp"
-        android:layout_height="75dp"
-        android:layout_marginEnd="28dp"
-        android:layout_marginRight="28dp"
-        android:contentDescription="@string/masterPegs"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.024"
-        app:srcCompat="@drawable/orange" />
-
-    <Button
-        android:id="@+id/generate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="128dp"
-        android:text="@string/codeGen"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:srcCompat="@drawable/board" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -26,7 +26,7 @@
         android:layout_height="171dp"
         android:layout_marginStart="56dp"
         android:layout_marginLeft="56dp"
-        android:text="@string/play1Button"
+        android:text="@string/play1_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -35,7 +35,7 @@
         android:id="@+id/button3"
         android:layout_width="136dp"
         android:layout_height="172dp"
-        android:text="@string/play2Button"
+        android:text="@string/play2_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/play1Button"
