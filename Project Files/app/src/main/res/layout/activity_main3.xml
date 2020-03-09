@@ -6,38 +6,114 @@
     android:layout_height="match_parent"
     tools:context=".Main3Activity">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="420dp"
-        android:layout_height="965dp"
-        android:contentDescription="@string/game_board"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/board" />
+    <TextView
+        android:id="@+id/box1_3"
+        android:layout_width="55dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="580dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:text="@string/dropBox"
+        app:layout_constraintEnd_toStartOf="@+id/box1_4"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/box1_1"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
+        android:layout_width="55dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="580dp"
         android:text="@string/dropBox"
+        app:layout_constraintEnd_toStartOf="@+id/box1_2"
+        app:layout_constraintHorizontal_bias="0.687"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/box1_2"
+        android:layout_width="55dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="580dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:text="@string/dropBox"
+        app:layout_constraintEnd_toStartOf="@+id/box1_3"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/box1_4"
+        android:layout_width="55dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="580dp"
+        android:layout_marginEnd="64dp"
+        android:layout_marginRight="64dp"
+        android:text="@string/dropBox"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/taskBar1"
+        android:layout_width="55dp"
+        android:layout_height="53dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/red_in"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.314"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.852" />
+        app:layout_constraintHorizontal_bias="0.115"
+        app:layout_constraintStart_toStartOf="parent" />
 
-    <ImageView
-        android:id="@+id/taskBar1"
-        android:layout_width="72dp"
-        android:layout_height="52dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginBottom="16dp"
+    <TextView
+        android:id="@+id/taskBar2"
+        android:layout_width="55dp"
+        android:layout_height="53dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/pink_in"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/blue"
-        android:contentDescription="@string/peg" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.269"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/taskBar3"
+        android:layout_width="55dp"
+        android:layout_height="53dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/orange_in"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.424"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/taskBar4"
+        android:layout_width="55dp"
+        android:layout_height="53dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/yellow_in"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.578"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/taskBar5"
+        android:layout_width="55dp"
+        android:layout_height="53dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/green_in"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.733"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/taskBar6"
+        android:layout_width="55dp"
+        android:layout_height="53dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/blue_in"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.887"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
