@@ -5,4 +5,8 @@
     <string name="master_pegs">Placeholder for generated codes to break</string>
     <string name="code_gen">Generate Code</string>
     <string name="game_board">Game board</string>
+    <string name="tb1" />
+    <string name="taskBarImg" />
+    <string name="dropBox">DROP HERE</string>
+    <string name="peg">Peg in taskbar</string>
 </resources>

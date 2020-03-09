@@ -16,4 +16,28 @@
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/board" />
 
+    <TextView
+        android:id="@+id/box1_1"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:text="@string/dropBox"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.314"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.852" />
+
+    <ImageView
+        android:id="@+id/taskBar1"
+        android:layout_width="72dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/blue"
+        android:contentDescription="@string/peg" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
