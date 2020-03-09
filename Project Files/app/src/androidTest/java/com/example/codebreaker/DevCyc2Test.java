@@ -34,7 +34,7 @@ public class DevCyc2Test {
     public ActivityTestRule<MainActivity> mActivityTestRule = new ActivityTestRule<>(MainActivity.class);
 
     @Test
-    public void devCyc2Test() {
+    public void devCyc2Test() throws InterruptedException {
         ViewInteraction appCompatButton = onView(
                 allOf(withId(R.id.play1Button), withText("One Player"),
                         childAtPosition(
@@ -59,7 +59,7 @@ public class DevCyc2Test {
                                 2),
                         isDisplayed()));
         appCompatTextView.perform(longClick());
-
+        Thread.sleep(250);
         ViewInteraction appCompatTextView2 = onView(
                 allOf(withId(R.id.taskBar2),
                         childAtPosition(
