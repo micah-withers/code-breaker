@@ -1,38 +1,25 @@
 US1: As a user, I want to see play options such as one or two player modes on game load 
 	so that I can choose which mode to play. Non-functional buttons will be labeled "COMING SOON".
 	
-	1. As a user, on click of "One Player", I want to see a game board with 10 rows of holes so that 
+	1.1. As a user, on click of "One Player", I want to see a game board with 10 rows of holes so that 
 		I have places to put my guesses.
-	2. As a user, I want to scroll up and down the game board so I can each row and revisit my
+	1.2. As a user, I want to scroll up and down the game board so I can each row and revisit my
 		guesses once I have made them.
-	3. As a user, I want to see a taskbar at the bottom of the screen with each colored peg so
+	1.3. As a user, I want to see a taskbar at the bottom of the screen with each colored peg so
 		that I can decide which pegs to place on the board.
-	4. As a user, I want to be able to drag and drop pegs on the game board so that I can make and
-		visualize my guesses.
+	1.4. As a user, I want to be able to drag and drop pegs on the game board so that I can make and
+		visualize my guesses. (US3)
 	
-US2: As a user, I want the game to generate random puzzles for me to guess and reveal the solution 
-	so that I can play single player
+US2: As a user, I want the game to generate a random set of four pegs for me to guess.
 	
 US3: As a user, I want to be able to drag and drop my pins for my guesses 
 	so that the game is more engaging/easy to use.
 	
+	3.1 As a user, I want to click the checkmark after making my four-peg guess to submit it and
+		allow me to make another guess in the next row. 
+	
 US4: As a user, I want to receive correct feedback on my guesses 
 	so that I know what I need to fix.
 	
-US5: As a user, I want to see the history of my guesses/results 
-	so that I can remember what I’ve done.
-	
-US6: As a user, I want to add friends
-	so that I can play two player with them. 
-	
-US7: As a user, I want to make my own puzzles 
-	so that I can send it to my friend.
-	
-US8: As a user, I want to send feedback to my friend’s guesses 
-	so that they know how much is right.
-	
-US9: As a user, I want to have the game validate my feedback in two-player 
-	so that my friend is sure to get accurate results.
-	
-US10: As a user, I want simple navigation between main screens, with helpful/catchy graphics 
+US6: As a user, I want simple navigation between main screens, with helpful/catchy graphics 
 	so that the app is more user friendly.
