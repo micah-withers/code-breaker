@@ -13,7 +13,12 @@ import android.view.View;
 
 import com.example.codebreaker.databinding.ActivityMain3Binding;
 
+import java.util.ArrayList;
+
 public class Main3Activity extends AppCompatActivity {
+    private String pegList[] = {"red", "pink", "orange", "yellow", "green", "blue"};
+    private ArrayList<String> pegCode = new ArrayList<String>();
+
     com.example.codebreaker.databinding.ActivityMain3Binding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +37,14 @@ public class Main3Activity extends AppCompatActivity {
         binding.box12.setOnDragListener(new MyDragListener());
         binding.box13.setOnDragListener(new MyDragListener());
         binding.box14.setOnDragListener(new MyDragListener());
+    }
+
+    void generateCode() {
+        // TODO : generate 4 random integers (0-5) to index in pegList and add to pegCode
+        function() {
+            pegCode.add(pegList[integer]);
+            System.out.println(pegCode[i]);
+        }
     }
 
     private static class MyLongClickListener implements View.OnLongClickListener {
