@@ -104,15 +104,15 @@ public class Main3Activity extends AppCompatActivity {
         checks.add(binding.check10);
 
         for (Button check : checks) {
-            check.setVisibility(View.GONE);
+            check.setVisibility(View.INVISIBLE);
         }
 
-        binding.taskBar1.setOnLongClickListener(new MyLongClickListener());
-        binding.taskBar2.setOnLongClickListener(new MyLongClickListener());
-        binding.taskBar3.setOnLongClickListener(new MyLongClickListener());
-        binding.taskBar4.setOnLongClickListener(new MyLongClickListener());
-        binding.taskBar5.setOnLongClickListener(new MyLongClickListener());
-        binding.taskBar6.setOnLongClickListener(new MyLongClickListener());
+        binding.taskBar1.setOnClickListener(new MyClickListener());
+        binding.taskBar2.setOnClickListener(new MyClickListener());
+        binding.taskBar3.setOnClickListener(new MyClickListener());
+        binding.taskBar4.setOnClickListener(new MyClickListener());
+        binding.taskBar5.setOnClickListener(new MyClickListener());
+        binding.taskBar6.setOnClickListener(new MyClickListener());
 
         setDragListeners(currentRow);
         setContentView(view);
@@ -127,7 +127,7 @@ public class Main3Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (boxesFilled == 4) {
-                    check.setVisibility(View.GONE);
+                    check.setVisibility(View.INVISIBLE);
                     boxesFilled = 0;
                     setDragListeners(row+1);
                 }
@@ -169,13 +169,12 @@ public class Main3Activity extends AppCompatActivity {
         System.out.println("Drag listeners null. row=" + row);
     }
 
-    private static class MyLongClickListener implements View.OnLongClickListener {
+    private static class MyClickListener implements View.OnClickListener {
         @RequiresApi(api = Build.VERSION_CODES.N)
-        public boolean onLongClick(View v) {
+        public void onClick(View v) {
             ClipData data = ClipData.newPlainText("", "");
             View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(v);
             v.startDragAndDrop(data, shadowBuilder, v, 0);
-            return true;
         }
     }
 
