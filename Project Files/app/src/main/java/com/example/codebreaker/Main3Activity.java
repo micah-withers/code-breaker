@@ -37,6 +37,40 @@ public class Main3Activity extends AppCompatActivity {
         binding = ActivityMain3Binding.inflate(getLayoutInflater());
         View view = binding.getRoot();
 
+        bindBoxes();
+
+        for (View v: boxes) {
+            v.setBackground(null);
+            v.setVisibility(View.GONE);
+        }
+
+        checks.add(binding.check1);
+        checks.add(binding.check2);
+        checks.add(binding.check3);
+        checks.add(binding.check4);
+        checks.add(binding.check5);
+        checks.add(binding.check6);
+        checks.add(binding.check7);
+        checks.add(binding.check8);
+        checks.add(binding.check9);
+        checks.add(binding.check10);
+
+        for (Button check : checks) {
+            check.setVisibility(View.INVISIBLE);
+        }
+
+        binding.taskBar1.setOnClickListener(new MyClickListener());
+        binding.taskBar2.setOnClickListener(new MyClickListener());
+        binding.taskBar3.setOnClickListener(new MyClickListener());
+        binding.taskBar4.setOnClickListener(new MyClickListener());
+        binding.taskBar5.setOnClickListener(new MyClickListener());
+        binding.taskBar6.setOnClickListener(new MyClickListener());
+
+        setDragListeners(currentRow);
+        setContentView(view);
+    }
+
+    private void bindBoxes() {
         boxes.add(binding.box11);
         boxes.add(binding.box12);
         boxes.add(binding.box13);
@@ -86,36 +120,6 @@ public class Main3Activity extends AppCompatActivity {
         boxes.add(binding.box102);
         boxes.add(binding.box103);
         boxes.add(binding.box104);
-
-        for (View v: boxes) {
-            v.setBackground(null);
-            v.setVisibility(View.GONE);
-        }
-
-        checks.add(binding.check1);
-        checks.add(binding.check2);
-        checks.add(binding.check3);
-        checks.add(binding.check4);
-        checks.add(binding.check5);
-        checks.add(binding.check6);
-        checks.add(binding.check7);
-        checks.add(binding.check8);
-        checks.add(binding.check9);
-        checks.add(binding.check10);
-
-        for (Button check : checks) {
-            check.setVisibility(View.INVISIBLE);
-        }
-
-        binding.taskBar1.setOnClickListener(new MyClickListener());
-        binding.taskBar2.setOnClickListener(new MyClickListener());
-        binding.taskBar3.setOnClickListener(new MyClickListener());
-        binding.taskBar4.setOnClickListener(new MyClickListener());
-        binding.taskBar5.setOnClickListener(new MyClickListener());
-        binding.taskBar6.setOnClickListener(new MyClickListener());
-
-        setDragListeners(currentRow);
-        setContentView(view);
     }
 
     private void setCheckButton(final int row) {
