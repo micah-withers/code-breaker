@@ -95,19 +95,19 @@
                 app:layout_constraintStart_toEndOf="@+id/box2_1"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
+            <Button
                 android:id="@+id/check1"
                 android:layout_width="30dp"
                 android:layout_height="28dp"
                 android:layout_marginEnd="32dp"
                 android:layout_marginRight="32dp"
                 android:layout_marginBottom="32dp"
-                android:text=""
+                android:background="@drawable/check"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/box1_4" />
 
-            <TextView
+            <Button
                 android:id="@+id/check2"
                 android:layout_width="30dp"
                 android:layout_height="28dp"
@@ -116,7 +116,7 @@
                 android:layout_marginTop="674dp"
                 android:layout_marginEnd="41dp"
                 android:layout_marginRight="41dp"
-                android:text=""
+                android:background="@drawable/check"
                 app:layout_constraintBottom_toTopOf="@+id/check1"
                 app:layout_constraintEnd_toEndOf="@+id/imageView"
                 app:layout_constraintHorizontal_bias="0.0"
