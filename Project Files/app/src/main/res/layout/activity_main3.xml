@@ -9,83 +9,653 @@
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="422dp"
-        android:layout_height="580dp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        android:layout_height="0dp"
+        android:layout_marginTop="34dp"
+        android:layout_marginBottom="117dp"
+        app:layout_constraintBottom_toTopOf="@+id/barrier"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.545"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintTop_toTopOf="parent">
 
-        <RelativeLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/relativeLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="match_parent"
+                android:id="@+id/board"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="67dp"
                 android:adjustViewBounds="true"
-                app:srcCompat="@drawable/board"
-                android:contentDescription="@string/game_board" />
+                android:contentDescription="@string/game_board"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/board" />
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentBottom="true">
+            <TextView
+                android:id="@+id/box101"
+                android:layout_width="33dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="122dp"
+                android:layout_marginLeft="122dp"
+                android:layout_marginTop="26dp"
+                android:background="@drawable/highlight"
+                android:text="@string/dropBox"
+                app:layout_constraintBottom_toTopOf="@+id/box91"
+                app:layout_constraintStart_toStartOf="@+id/board"
+                app:layout_constraintTop_toTopOf="@+id/board"
+                app:layout_constraintVertical_bias="0.0" />
 
-                <TextView
-                    android:id="@+id/box1_4"
-                    android:layout_width="34dp"
-                    android:layout_height="32dp"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginTop="0dp"
-                    android:layout_marginEnd="81dp"
-                    android:layout_marginRight="81dp"
-                    android:text="@string/dropBox" />
+            <TextView
+                android:id="@+id/box11"
+                android:layout_width="33dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="122dp"
+                android:layout_marginLeft="122dp"
+                android:layout_marginBottom="33dp"
+                android:background="@drawable/highlight"
+                android:text="@string/dropBox"
+                app:layout_constraintBottom_toBottomOf="@+id/board"
+                app:layout_constraintStart_toStartOf="@+id/board" />
 
-                <TextView
-                    android:id="@+id/box1_3"
-                    android:layout_width="34dp"
-                    android:layout_height="32dp"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginTop="1dp"
-                    android:layout_marginEnd="26dp"
-                    android:layout_marginRight="26dp"
-                    android:layout_toStartOf="@+id/box1_4"
-                    android:layout_toLeftOf="@+id/box1_4"
-                    android:text="@string/dropBox" />
 
-                <TextView
-                    android:id="@+id/box1_2"
-                    android:layout_width="34dp"
-                    android:layout_height="32dp"
-                    android:layout_marginStart="36dp"
-                    android:layout_marginLeft="36dp"
-                    android:layout_marginEnd="28dp"
-                    android:layout_marginRight="28dp"
-                    android:layout_marginBottom="32dp"
-                    android:layout_toStartOf="@+id/box1_3"
-                    android:layout_toLeftOf="@+id/box1_3"
-                    android:text="@string/dropBox" />
+            <TextView
+                android:id="@+id/box91"
+                android:layout_width="33dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="122dp"
+                android:layout_marginLeft="122dp"
+                android:layout_marginBottom="48dp"
+                android:background="@drawable/highlight"
+                android:text="@string/dropBox"
+                app:layout_constraintBottom_toTopOf="@+id/box81"
+                app:layout_constraintStart_toStartOf="@+id/board" />
 
-                <TextView
-                    android:id="@+id/box1_1"
-                    android:layout_width="34dp"
-                    android:layout_height="32dp"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentLeft="true"
-                    android:layout_marginStart="124dp"
-                    android:layout_marginLeft="124dp"
-                    android:layout_marginBottom="32dp"
-                    android:text="@string/dropBox" />
-            </RelativeLayout>
+            <TextView
+                android:id="@+id/box81"
+                android:layout_width="33dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="122dp"
+                android:layout_marginLeft="122dp"
+                android:layout_marginBottom="48dp"
+                android:background="@drawable/highlight"
+                android:text="@string/dropBox"
+                app:layout_constraintBottom_toTopOf="@+id/box71"
+                app:layout_constraintStart_toStartOf="@+id/board" />
 
-        </RelativeLayout>
+            <Button
+                android:id="@+id/check8"
+                android:layout_width="33dp"
+                android:layout_height="28dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="52dp"
+                android:background="@drawable/check"
+                app:layout_constraintBottom_toTopOf="@+id/check7"
+                app:layout_constraintEnd_toEndOf="@+id/board"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/box84" />
+
+            <TextView
+                android:id="@+id/box102"
+                android:layout_width="33dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="26dp"
+                android:layout_marginBottom="48dp"
+                android:background="@drawable/highlight"
+                android:text="@string/dropBox"
+                app:layout_constraintBottom_toTopOf="@+id/box92"
+                app:layout_constraintStart_toEndOf="@+id/box101"
+                app:layout_constraintTop_toTopOf="@+id/board"
+                app:layout_constraintVertical_bias="0.00" />
+
+            <TextView
+                android:id="@+id/box92"
+                android:layout_width="33dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginBottom="48dp"
+                android:background="@drawable/highlight"
+                android:text="@string/dropBox"
+                app:layout_constraintBottom_toTopOf="@+id/box82"
+                app:layout_constraintStart_toEndOf="@+id/box91" />
+
+            <TextView
+                android:id="@+id/box93"
+                android:layout_width="33dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="29dp"
+                android:layout_marginLeft="29dp"
+                android:layout_marginBottom="48dp"
+                android:background="@drawable/highlight"
+                android:text="@string/dropBox"
+                app:layout_constraintBottom_toTopOf="@+id/box83"
+                app:layout_constraintStart_toEndOf="@+id/box92" />
+
+            <TextView
+                android:id="@+id/box103"
+                android:layout_width="33dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="29dp"
+                android:layout_marginLeft="29dp"
+                android:layout_marginTop="26dp"
+                android:background="@drawable/highlight"
+                android:text="@string/dropBox"
+                app:layout_constraintBottom_toTopOf="@+id/box93"
+                app:layout_constraintStart_toEndOf="@+id/box102"
+                app:layout_constraintTop_toTopOf="@+id/board"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/box104"
+                android:layout_width="33dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="29dp"
+                android:layout_marginLeft="29dp"
+                android:layout_marginTop="26dp"
+                android:background="@drawable/highlight"
+                android:text="@string/dropBox"
+                app:layout_constraintBottom_toTopOf="@+id/box94"
+                app:layout_constraintStart_toEndOf="@+id/box103"
+                app:layout_constraintTop_toTopOf="@+id/board"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <Button
+                android:id="@+id/check10"
+                android:layout_width="33dp"
+                android:layout_height="28dp"
+                android:layout_marginTop="26dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:background="@drawable/check"
+                app:layout_constraintBottom_toTopOf="@+id/check9"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/board"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <Button
+                android:id="@+id/check9"
+                android:layout_width="33dp"
+                android:layout_height="28dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="52dp"
+                android:background="@drawable/check"
+                app:layout_constraintBottom_toTopOf="@+id/check8"
+                app:layout_constraintEnd_toEndOf="@+id/board"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/box94" />
+
+            <TextView
+                android:id="@+id/box94"
+                android:layout_width="33dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="29dp"
+                android:layout_marginLeft="29dp"
+                android:layout_marginBottom="48dp"
+                android:background="@drawable/highlight"
+                android:text="@string/dropBox"
+                app:layout_constraintBottom_toTopOf="@+id/box84"
+                app:layout_constraintStart_toEndOf="@+id/box93" />
+
+            <TextView
+                android:id="@+id/box82"
+                android:layout_width="33dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginBottom="48dp"
+                android:background="@drawable/highlight"
+                android:text="@string/dropBox"
+                app:layout_constraintBottom_toTopOf="@+id/box72"
+                app:layout_constraintStart_toEndOf="@+id/box81" />
+
+            <TextView
+                android:id="@+id/box83"
+                android:layout_width="33dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="29dp"
+                android:layout_marginLeft="29dp"
+                android:layout_marginBottom="48dp"
+                android:background="@drawable/highlight"
+                android:text="@string/dropBox"
+                app:layout_constraintBottom_toTopOf="@+id/box73"
+                app:layout_constraintStart_toEndOf="@+id/box82" />
+
+            <TextView
+                android:id="@+id/box84"
+                android:layout_width="33dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="29dp"
+                android:layout_marginLeft="29dp"
+                android:layout_marginBottom="48dp"
+                android:background="@drawable/highlight"
+                android:text="@string/dropBox"
+                app:layout_constraintBottom_toTopOf="@+id/box74"
+                app:layout_constraintStart_toEndOf="@+id/box83" />
+
+            <Button
+                android:id="@+id/check7"
+                android:layout_width="33dp"
+                android:layout_height="28dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="52dp"
+                android:background="@drawable/check"
+                app:layout_constraintBottom_toTopOf="@+id/check6"
+                app:layout_constraintEnd_toEndOf="@+id/board"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/box74" />
+
+            <TextView
+                android:id="@+id/box71"
+                android:layout_width="33dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="122dp"
+                android:layout_marginLeft="122dp"
+                android:layout_marginBottom="48dp"
+                android:background="@drawable/highlight"
+                android:text="@string/dropBox"
+                app:layout_constraintBottom_toTopOf="@+id/box61"
+                app:layout_constraintStart_toStartOf="@+id/board" />
+
+            <TextView
+                android:id="@+id/box74"
+                android:layout_width="33dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="29dp"
+                android:layout_marginLeft="29dp"
+                android:layout_marginBottom="48dp"
+                android:background="@drawable/highlight"
+                android:text="@string/dropBox"
+                app:layout_constraintBottom_toTopOf="@+id/box64"
+                app:layout_constraintStart_toEndOf="@+id/box73" />
+
+            <TextView
+                android:id="@+id/box64"
+                android:layout_width="33dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="29dp"
+                android:layout_marginLeft="29dp"
+                android:layout_marginBottom="52dp"
+                android:background="@drawable/highlight"
+                android:text="@string/dropBox"
+                app:layout_constraintBottom_toTopOf="@+id/box54"
+                app:layout_constraintStart_toEndOf="@+id/box63" />
+
+            <TextView
+                android:id="@+id/box54"
+                android:layout_width="33dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="29dp"
+                android:layout_marginLeft="29dp"
+                android:layout_marginBottom="48dp"
+                android:background="@drawable/highlight"
+                android:text="@string/dropBox"
+                app:layout_constraintBottom_toTopOf="@+id/box44"
+                app:layout_constraintStart_toEndOf="@+id/box53" />
+
+            <TextView
+                android:id="@+id/box44"
+                android:layout_width="33dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="29dp"
+                android:layout_marginLeft="29dp"
+                android:layout_marginBottom="48dp"
+                android:background="@drawable/highlight"
+                android:text="@string/dropBox"
+                app:layout_constraintBottom_toTopOf="@+id/box34"
+                app:layout_constraintStart_toEndOf="@+id/box43" />
+
+            <TextView
+                android:id="@+id/box34"
+                android:layout_width="33dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="29dp"
+                android:layout_marginLeft="29dp"
+                android:layout_marginBottom="48dp"
+                android:background="@drawable/highlight"
+                android:text="@string/dropBox"
+                app:layout_constraintBottom_toTopOf="@+id/box24"
+                app:layout_constraintStart_toEndOf="@+id/box33" />
+
+            <TextView
+                android:id="@+id/box24"
+                android:layout_width="33dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="29dp"
+                android:layout_marginLeft="29dp"
+                android:layout_marginBottom="48dp"
+                android:background="@drawable/highlight"
+                android:text="@string/dropBox"
+                app:layout_constraintBottom_toTopOf="@+id/box14"
+                app:layout_constraintStart_toEndOf="@+id/box23" />
+
+            <TextView
+                android:id="@+id/box14"
+                android:layout_width="33dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="29dp"
+                android:layout_marginLeft="29dp"
+                android:layout_marginBottom="32dp"
+                android:background="@drawable/highlight"
+                android:text="@string/dropBox"
+                app:layout_constraintBottom_toBottomOf="@+id/board"
+                app:layout_constraintStart_toEndOf="@+id/box13" />
+
+            <TextView
+                android:id="@+id/box73"
+                android:layout_width="33dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="29dp"
+                android:layout_marginLeft="29dp"
+                android:layout_marginBottom="48dp"
+                android:background="@drawable/highlight"
+                android:text="@string/dropBox"
+                app:layout_constraintBottom_toTopOf="@+id/box63"
+                app:layout_constraintStart_toEndOf="@+id/box72" />
+
+            <Button
+                android:id="@+id/check6"
+                android:layout_width="33dp"
+                android:layout_height="28dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="54dp"
+                android:background="@drawable/check"
+                app:layout_constraintBottom_toTopOf="@+id/check5"
+                app:layout_constraintEnd_toEndOf="@+id/board"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/box64" />
+
+            <TextView
+                android:id="@+id/box63"
+                android:layout_width="33dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="29dp"
+                android:layout_marginLeft="29dp"
+                android:layout_marginBottom="52dp"
+                android:background="@drawable/highlight"
+                android:text="@string/dropBox"
+                app:layout_constraintBottom_toTopOf="@+id/box53"
+                app:layout_constraintStart_toEndOf="@+id/box62" />
+
+            <TextView
+                android:id="@+id/box61"
+                android:layout_width="33dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="122dp"
+                android:layout_marginLeft="122dp"
+                android:layout_marginBottom="52dp"
+                android:background="@drawable/highlight"
+                android:text="@string/dropBox"
+                app:layout_constraintBottom_toTopOf="@+id/box51"
+                app:layout_constraintStart_toStartOf="@+id/board" />
+
+            <Button
+                android:id="@+id/check5"
+                android:layout_width="33dp"
+                android:layout_height="28dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="52dp"
+                android:background="@drawable/check"
+                app:layout_constraintBottom_toTopOf="@+id/check4"
+                app:layout_constraintEnd_toEndOf="@+id/board"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/box54" />
+
+            <TextView
+                android:id="@+id/box53"
+                android:layout_width="33dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="29dp"
+                android:layout_marginLeft="29dp"
+                android:layout_marginBottom="48dp"
+                android:background="@drawable/highlight"
+                android:text="@string/dropBox"
+                app:layout_constraintBottom_toTopOf="@+id/box43"
+                app:layout_constraintStart_toEndOf="@+id/box52" />
+
+            <TextView
+                android:id="@+id/box51"
+                android:layout_width="33dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="122dp"
+                android:layout_marginLeft="122dp"
+                android:layout_marginBottom="48dp"
+                android:background="@drawable/highlight"
+                android:text="@string/dropBox"
+                app:layout_constraintBottom_toTopOf="@+id/box41"
+                app:layout_constraintStart_toStartOf="@+id/board" />
+
+            <Button
+                android:id="@+id/check4"
+                android:layout_width="33dp"
+                android:layout_height="28dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="52dp"
+                android:background="@drawable/check"
+                app:layout_constraintBottom_toTopOf="@+id/check3"
+                app:layout_constraintEnd_toEndOf="@+id/board"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/box44" />
+
+            <TextView
+                android:id="@+id/box43"
+                android:layout_width="33dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="29dp"
+                android:layout_marginLeft="29dp"
+                android:layout_marginBottom="48dp"
+                android:background="@drawable/highlight"
+                android:text="@string/dropBox"
+                app:layout_constraintBottom_toTopOf="@+id/box33"
+                app:layout_constraintStart_toEndOf="@+id/box42" />
+
+            <TextView
+                android:id="@+id/box41"
+                android:layout_width="33dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="122dp"
+                android:layout_marginLeft="122dp"
+                android:layout_marginBottom="48dp"
+                android:background="@drawable/highlight"
+                android:text="@string/dropBox"
+                app:layout_constraintBottom_toTopOf="@+id/box31"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <Button
+                android:id="@+id/check3"
+                android:layout_width="33dp"
+                android:layout_height="28dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="52dp"
+                android:background="@drawable/check"
+                app:layout_constraintBottom_toTopOf="@+id/check2"
+                app:layout_constraintEnd_toEndOf="@+id/board"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/box34" />
+
+            <TextView
+                android:id="@+id/box33"
+                android:layout_width="33dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="29dp"
+                android:layout_marginLeft="29dp"
+                android:layout_marginBottom="48dp"
+                android:background="@drawable/highlight"
+                android:text="@string/dropBox"
+                app:layout_constraintBottom_toTopOf="@+id/box23"
+                app:layout_constraintStart_toEndOf="@+id/box32" />
+
+            <TextView
+                android:id="@+id/box31"
+                android:layout_width="33dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="122dp"
+                android:layout_marginLeft="122dp"
+                android:layout_marginBottom="48dp"
+                android:background="@drawable/highlight"
+                android:text="@string/dropBox"
+                app:layout_constraintBottom_toTopOf="@+id/box21"
+                app:layout_constraintStart_toStartOf="@+id/board" />
+
+            <Button
+                android:id="@+id/check2"
+                android:layout_width="33dp"
+                android:layout_height="28dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="52dp"
+                android:background="@drawable/check"
+                app:layout_constraintBottom_toTopOf="@+id/check1"
+                app:layout_constraintEnd_toEndOf="@+id/board"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/box24" />
+
+            <TextView
+                android:id="@+id/box23"
+                android:layout_width="33dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="29dp"
+                android:layout_marginLeft="29dp"
+                android:layout_marginBottom="48dp"
+                android:background="@drawable/highlight"
+                android:text="@string/dropBox"
+                app:layout_constraintBottom_toTopOf="@+id/box13"
+                app:layout_constraintStart_toEndOf="@+id/box22" />
+
+            <TextView
+                android:id="@+id/box21"
+                android:layout_width="33dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="122dp"
+                android:layout_marginLeft="122dp"
+                android:layout_marginBottom="48dp"
+                android:background="@drawable/highlight"
+                android:text="@string/dropBox"
+                app:layout_constraintBottom_toTopOf="@+id/box11"
+                app:layout_constraintStart_toStartOf="@+id/board" />
+
+            <Button
+                android:id="@+id/check1"
+                android:layout_width="33dp"
+                android:layout_height="28dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="36dp"
+                android:background="@drawable/check"
+                app:layout_constraintBottom_toBottomOf="@+id/board"
+                app:layout_constraintEnd_toEndOf="@+id/board"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/box14" />
+
+            <TextView
+                android:id="@+id/box13"
+                android:layout_width="33dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="29dp"
+                android:layout_marginLeft="29dp"
+                android:layout_marginBottom="32dp"
+                android:background="@drawable/highlight"
+                android:text="@string/dropBox"
+                app:layout_constraintBottom_toBottomOf="@+id/board"
+                app:layout_constraintStart_toEndOf="@+id/box12" />
+
+            <TextView
+                android:id="@+id/box72"
+                android:layout_width="33dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginBottom="48dp"
+                android:background="@drawable/highlight"
+                android:text="@string/dropBox"
+                app:layout_constraintBottom_toTopOf="@+id/box62"
+                app:layout_constraintStart_toEndOf="@+id/box71" />
+
+            <TextView
+                android:id="@+id/box62"
+                android:layout_width="33dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginBottom="52dp"
+                android:background="@drawable/highlight"
+                android:text="@string/dropBox"
+                app:layout_constraintBottom_toTopOf="@+id/box52"
+                app:layout_constraintStart_toEndOf="@+id/box61" />
+
+            <TextView
+                android:id="@+id/box52"
+                android:layout_width="33dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginBottom="48dp"
+                android:background="@drawable/highlight"
+                android:text="@string/dropBox"
+                app:layout_constraintBottom_toTopOf="@+id/box42"
+                app:layout_constraintStart_toEndOf="@+id/box51" />
+
+            <TextView
+                android:id="@+id/box42"
+                android:layout_width="33dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginBottom="48dp"
+                android:background="@drawable/highlight"
+                android:text="@string/dropBox"
+                app:layout_constraintBottom_toTopOf="@+id/box32"
+                app:layout_constraintStart_toEndOf="@+id/box41" />
+
+            <TextView
+                android:id="@+id/box32"
+                android:layout_width="33dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginBottom="48dp"
+                android:background="@drawable/highlight"
+                android:text="@string/dropBox"
+                app:layout_constraintBottom_toTopOf="@+id/box22"
+                app:layout_constraintStart_toEndOf="@+id/box31" />
+
+            <TextView
+                android:id="@+id/box22"
+                android:layout_width="33dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginBottom="48dp"
+                android:background="@drawable/highlight"
+                android:text="@string/dropBox"
+                app:layout_constraintBottom_toTopOf="@+id/box12"
+                app:layout_constraintStart_toEndOf="@+id/box21" />
+
+            <TextView
+                android:id="@+id/box12"
+                android:layout_width="33dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginBottom="33dp"
+                android:background="@drawable/highlight"
+                android:text="@string/dropBox"
+                app:layout_constraintBottom_toBottomOf="@+id/board"
+                app:layout_constraintStart_toEndOf="@+id/box11" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
     <LinearLayout
@@ -164,22 +734,12 @@
         app:layout_constraintStart_toStartOf="parent" />
 
 
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="731dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
-
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/barrier"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:barrierDirection="top"
-        tools:layout_editor_absoluteY="731dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
