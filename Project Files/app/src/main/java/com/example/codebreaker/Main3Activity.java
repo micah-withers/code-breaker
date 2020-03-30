@@ -19,9 +19,10 @@ public class Main3Activity extends AppCompatActivity {
     com.example.codebreaker.databinding.ActivityMain3Binding binding;
     ArrayList<View> boxes;
     ArrayList<Button> checks;
-    private int currentRow, nRows, boxesFilled;
+    private int currentRow, nRows, boxesFilled, boxesPerRow;
     private DragAndDrop pegCarrier;
     private boolean dragValue, dropValue;
+    private boolean[] boxStatuses;
 
     public int getCurrentRow() {
         return currentRow;
@@ -50,50 +51,56 @@ public class Main3Activity extends AppCompatActivity {
         checks = new ArrayList<>();
         currentRow = 0;
         nRows = 10;
+        boxesPerRow = 4;
         boxesFilled = 0;
+        boxStatuses = new boolean[boxesPerRow];
+
+        for (boolean val : boxStatuses) {
+            val = false;
+        }
 
         binding = ActivityMain3Binding.inflate(getLayoutInflater());
         View view = binding.getRoot();
 
-//        binding.board.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                dragValue = false;
-//                pegCarrier = null;
-//                dropValue = false;
-//            }
-//        });
-//
-//        bindBoxes();
-//
-//        for (View v: boxes) {
-//            v.setBackground(null);
-//            v.setVisibility(View.GONE);
-//        }
-//
-//        checks.add(binding.check1);
-//        checks.add(binding.check2);
-//        checks.add(binding.check3);
-//        checks.add(binding.check4);
-//        checks.add(binding.check5);
-//        checks.add(binding.check6);
-//        checks.add(binding.check7);
-//        checks.add(binding.check8);
-//        checks.add(binding.check9);
-//        checks.add(binding.check10);
-//
-//        for (Button check : checks) {
-//            check.setVisibility(View.GONE);
-//        }
-//
-//        binding.taskBar1.setOnClickListener(new MyClickListener());
-//        binding.taskBar2.setOnClickListener(new MyClickListener());
-//        binding.taskBar3.setOnClickListener(new MyClickListener());
-//        binding.taskBar4.setOnClickListener(new MyClickListener());
-//        binding.taskBar5.setOnClickListener(new MyClickListener());
-//        binding.taskBar6.setOnClickListener(new MyClickListener());
-//
-//        setDropListeners(currentRow);
+        binding.board.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dragValue = false;
+                pegCarrier = null;
+                dropValue = false;
+            }
+        });
+
+        bindBoxes();
+
+        for (View v: boxes) {
+            v.setBackground(null);
+            v.setVisibility(View.GONE);
+        }
+
+        checks.add(binding.check1);
+        checks.add(binding.check2);
+        checks.add(binding.check3);
+        checks.add(binding.check4);
+        checks.add(binding.check5);
+        checks.add(binding.check6);
+        checks.add(binding.check7);
+        checks.add(binding.check8);
+        checks.add(binding.check9);
+        checks.add(binding.check10);
+
+        for (Button check : checks) {
+            check.setVisibility(View.GONE);
+        }
+
+        binding.taskBar1.setOnClickListener(new MyClickListener());
+        binding.taskBar2.setOnClickListener(new MyClickListener());
+        binding.taskBar3.setOnClickListener(new MyClickListener());
+        binding.taskBar4.setOnClickListener(new MyClickListener());
+        binding.taskBar5.setOnClickListener(new MyClickListener());
+        binding.taskBar6.setOnClickListener(new MyClickListener());
+
+        setDropListeners(currentRow);
         setContentView(view);
     }
 
@@ -149,6 +156,21 @@ public class Main3Activity extends AppCompatActivity {
         boxes.add(binding.box104);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    private void toggleHighlight() {
+        int boxIndex = currentRow*boxesPerRow;
+        for (int i = 0; i < boxesPerRow; ++i) {
+            if (!boxStatuses[i]) {
+                if (dragValue) {
+                    boxes.get(boxIndex+i).setBackground(getDrawable(R.drawable.highlight));
+                }
+                else {
+                    boxes.get(boxIndex+i).setBackground(null);
+                }
+            }
+        }
+    }
+
     private void setCheckButton(final int row) {
         if (row > 0) {
             nullCheckButton(row - 1);
@@ -159,9 +181,12 @@ public class Main3Activity extends AppCompatActivity {
             public void onClick(View v) {
                 pegCarrier = null;
                 dragValue = false;
-                if (boxesFilled == 4) {
+                if (boxesFilled == boxesPerRow) {
                     check.setVisibility(View.INVISIBLE);
                     boxesFilled = 0;
+                    for (int i = 0; i < boxesPerRow; ++i) {
+                        boxStatuses[i] = false;
+                    }
                     setDropListeners(row+1);
                 }
             }
@@ -179,8 +204,8 @@ public class Main3Activity extends AppCompatActivity {
             nullDropListeners(row-1);
         }
         if (row < nRows) {
-            int startIndex = row*4;
-            for (int i = startIndex; i < startIndex+4; ++i) {
+            int startIndex = row*boxesPerRow;
+            for (int i = startIndex; i < startIndex+boxesPerRow; ++i) {
                 View box = boxes.get(i);
                 box.setOnClickListener(new MyDropListener());
 //                box.setOnDragListener(new MyDragListener());
@@ -195,8 +220,8 @@ public class Main3Activity extends AppCompatActivity {
     }
 
     private void nullDropListeners(int row) {
-        int startIndex = row*4;
-        for (int i = startIndex; i < startIndex+4; ++i) {
+        int startIndex = row*boxesPerRow;
+        for (int i = startIndex; i < startIndex+boxesPerRow; ++i) {
             View box = boxes.get(i);
             box.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -221,12 +246,14 @@ public class Main3Activity extends AppCompatActivity {
         }
     }
 
-    private static class DragAndDrop {
+    private class DragAndDrop {
         private Drawable background;
         private View view;
         private DragAndDrop(View view, Drawable background) {
+            dragValue = true;
             this.view = view;
             this.background = background;
+            System.out.println("DragAndDrop created");
         }
         public View getView() {
             return view;
@@ -237,7 +264,7 @@ public class Main3Activity extends AppCompatActivity {
     }
 
     private class MyDropListener implements View.OnClickListener {
-        private boolean hasPeg = false;
+
 
 //        @RequiresApi(api = Build.VERSION_CODES.N)
         @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
@@ -247,14 +274,17 @@ public class Main3Activity extends AppCompatActivity {
                 dropValue = true;
                 pegCarrier = null;
                 dragValue = false;
-                hasPeg = true;
+                boxStatuses[boxes.indexOf(v) % boxesPerRow] = true;
                 ++boxesFilled;
-                if (boxesFilled == 4) {
+                if (boxesFilled == boxesPerRow) {
                     View check = checks.get(currentRow);
                     ++currentRow;
                     check.setVisibility(View.VISIBLE);
                 }
                 System.out.println("Drag drop. Boxes filled: " + boxesFilled);
+            }
+            else {
+                System.out.println("false dragValue");
             }
 //            ClipData data = ClipData.newPlainText("", "");
 //            View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(v);

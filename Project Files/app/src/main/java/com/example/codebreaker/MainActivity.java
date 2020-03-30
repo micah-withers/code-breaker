@@ -24,8 +24,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void configurePushButton(){
         binding = ActivityMainBinding.inflate(getLayoutInflater());
-        Button pushButton = binding.play1Button;
-//        Button pushButton = findViewById(R.id.play1Button);
+//        Button pushButton = binding.play1Button;
+        Button pushButton = findViewById(R.id.play1Button);
         pushButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Code here executes on main thread after user presses button
