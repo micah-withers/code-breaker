@@ -144,9 +144,12 @@ public class Main3Activity extends AppCompatActivity {
 
     void generateCode() {
         // TODO : generate 4 random integers (0-5) to index in pegList and add to pegCode
-        function() {
-            pegCode.add(pegList[integer]);
-            System.out.println(pegCode[i]);
+        //peg list has all the colors, so the for loop, put i in the for loop and will be the index of the new list created
+
+        for(int i = 0; i < 4; i ++) {
+            int randomNum = (int)(Math.random() *5);
+            pegCode.add(pegList[randomNum]);
+            System.out.println(pegList[i]);
         }
     }
 
