@@ -2,6 +2,7 @@
   <dictionary name="micah">
     <words>
       <w>autosize</w>
+      <w>databinding</w>
       <w>sharedpref</w>
       <w>taskbar</w>
     </words>
