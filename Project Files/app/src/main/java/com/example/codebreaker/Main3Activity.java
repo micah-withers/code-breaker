@@ -149,7 +149,6 @@ public class Main3Activity extends AppCompatActivity {
         for(int i = 0; i < 4; i ++) {
             int randomNum = (int)(Math.random() *5);
             pegCode.add(pegList[randomNum]);
-            System.out.println(pegList[i]);
         }
     }
 
