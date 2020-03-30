@@ -7,12 +7,16 @@ package com.example.codebreaker;
 //import android.content.Context;
 //import android.os.Bundle;
 
+import android.graphics.drawable.Drawable;
+import android.view.View;
+
 import androidx.test.espresso.ViewInteraction;
 //import androidx.test.platform.app.InstrumentationRegistry;
 import androidx.test.rule.ActivityTestRule;
 
 //import com.example.codebreaker.databinding.ActivityMainBinding;
 
+import org.hamcrest.Matcher;
 import org.junit.Rule;
 import org.junit.Test;
 
@@ -32,7 +36,7 @@ import static androidx.test.espresso.matcher.ViewMatchers.withId;
 //import static org.junit.Assert.assertEquals;
 //import static androidx.test.espresso.matcher.ViewMatchers.withText;
 
-//import static org.junit.Assert.*;
+import static org.junit.Assert.*;
 
 
 
@@ -48,20 +52,27 @@ public class Main3ActivityTest {
 
     @Test
     public void clickPegs() throws InterruptedException {
+        Main3Activity main3ActivityClass = mActivityRule.getActivity();
+
+        assertFalse(main3ActivityClass.dragValue());
         onView(withId(R.id.taskBar1))
                 .perform(click());
+        assertTrue(main3ActivityClass.dragValue());
+
         ViewInteraction appCompatScroll = onView(withId(R.id.box11));
         appCompatScroll.perform(scrollTo());
+
+        View peg1 = main3ActivityClass.getDragAndDropView();
         onView(withId(R.id.box11))
                 .perform(click());
-        TimeUnit.SECONDS.sleep(5);
+        assertThat(peg1.getBackground(), (Matcher<? super Drawable>) main3ActivityClass.getBoxes().get(0).getBackground());
 //        onView(withId(R.id.taskBar3))
 //                .perform(click());
 //        onView(withId(R.id.taskBar5))
 //                .perform(click());
     }
 
-    @Test
-    public void dragAndDrop() {
-    }
+//    @Test
+//    public void dragAndDrop() {
+//    }
 }

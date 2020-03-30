@@ -55,19 +55,21 @@ public class Main3Activity extends AppCompatActivity {
         boxesFilled = 0;
         boxStatuses = new boolean[boxesPerRow];
 
-        for (boolean val : boxStatuses) {
-            val = false;
+        for (int i = 0; i < boxesPerRow; ++i) {
+            boxStatuses[i] = false;
         }
 
         binding = ActivityMain3Binding.inflate(getLayoutInflater());
         View view = binding.getRoot();
 
         binding.board.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
             @Override
             public void onClick(View v) {
                 dragValue = false;
                 pegCarrier = null;
                 dropValue = false;
+                toggleHighlight();
             }
         });
 
@@ -237,9 +239,10 @@ public class Main3Activity extends AppCompatActivity {
 
     private class MyClickListener implements View.OnClickListener {
 //        @RequiresApi(api = Build.VERSION_CODES.N)
+        @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
         public void onClick(View v) {
-
             pegCarrier = new DragAndDrop(v, v.getBackground());
+            toggleHighlight();
 //            ClipData data = ClipData.newPlainText("", "");
 //            View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(v);
 //            v.startDragAndDrop(data, shadowBuilder, v, 0);
@@ -255,7 +258,7 @@ public class Main3Activity extends AppCompatActivity {
             this.background = background;
             System.out.println("DragAndDrop created");
         }
-        public View getView() {
+        private View getView() {
             return view;
         }
         private Drawable getBackground() {
@@ -263,11 +266,16 @@ public class Main3Activity extends AppCompatActivity {
         }
     }
 
+    public View getDragAndDropView() {
+        return pegCarrier.getView();
+    }
+
+    public ArrayList<View> getBoxes() {
+        return (ArrayList<View>) boxes.clone();
+    }
+
     private class MyDropListener implements View.OnClickListener {
-
-
-//        @RequiresApi(api = Build.VERSION_CODES.N)
-        @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+        @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
         public void onClick(View v) {
             if (dragValue) {
                 v.setBackground(pegCarrier.getBackground());
@@ -284,6 +292,7 @@ public class Main3Activity extends AppCompatActivity {
                 System.out.println("Drag drop. Boxes filled: " + boxesFilled);
             }
             else {
+                toggleHighlight();
                 System.out.println("false dragValue");
             }
 //            ClipData data = ClipData.newPlainText("", "");
