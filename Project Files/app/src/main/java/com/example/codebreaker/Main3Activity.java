@@ -3,12 +3,10 @@ package com.example.codebreaker;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.ClipData;
 //import android.graphics.drawable.Drawable;
-import android.graphics.Rect;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
-import android.view.DragEvent;
 import android.view.View;
 import android.widget.Button;
 
@@ -22,12 +20,32 @@ public class Main3Activity extends AppCompatActivity {
     ArrayList<View> boxes;
     ArrayList<Button> checks;
     private int currentRow, nRows, boxesFilled;
+    private DragAndDrop pegCarrier;
+    private boolean dragValue, dropValue;
+
+    public int getCurrentRow() {
+        return currentRow;
+    }
+
+    public int getBoxesFilled() {
+        return boxesFilled;
+    }
+
+    public boolean dragValue() {
+        return dragValue;
+    }
+
+    public boolean dropValue() {
+        return dropValue;
+    }
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        dragValue = false;
+        dropValue = false;
         boxes = new ArrayList<>();
         checks = new ArrayList<>();
         currentRow = 0;
@@ -37,36 +55,45 @@ public class Main3Activity extends AppCompatActivity {
         binding = ActivityMain3Binding.inflate(getLayoutInflater());
         View view = binding.getRoot();
 
-        bindBoxes();
-
-        for (View v: boxes) {
-            v.setBackground(null);
-            v.setVisibility(View.GONE);
-        }
-
-        checks.add(binding.check1);
-        checks.add(binding.check2);
-        checks.add(binding.check3);
-        checks.add(binding.check4);
-        checks.add(binding.check5);
-        checks.add(binding.check6);
-        checks.add(binding.check7);
-        checks.add(binding.check8);
-        checks.add(binding.check9);
-        checks.add(binding.check10);
-
-        for (Button check : checks) {
-            check.setVisibility(View.GONE);
-        }
-
-        binding.taskBar1.setOnClickListener(new MyClickListener());
-        binding.taskBar2.setOnClickListener(new MyClickListener());
-        binding.taskBar3.setOnClickListener(new MyClickListener());
-        binding.taskBar4.setOnClickListener(new MyClickListener());
-        binding.taskBar5.setOnClickListener(new MyClickListener());
-        binding.taskBar6.setOnClickListener(new MyClickListener());
-
-        setDragListeners(currentRow);
+//        binding.board.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                dragValue = false;
+//                pegCarrier = null;
+//                dropValue = false;
+//            }
+//        });
+//
+//        bindBoxes();
+//
+//        for (View v: boxes) {
+//            v.setBackground(null);
+//            v.setVisibility(View.GONE);
+//        }
+//
+//        checks.add(binding.check1);
+//        checks.add(binding.check2);
+//        checks.add(binding.check3);
+//        checks.add(binding.check4);
+//        checks.add(binding.check5);
+//        checks.add(binding.check6);
+//        checks.add(binding.check7);
+//        checks.add(binding.check8);
+//        checks.add(binding.check9);
+//        checks.add(binding.check10);
+//
+//        for (Button check : checks) {
+//            check.setVisibility(View.GONE);
+//        }
+//
+//        binding.taskBar1.setOnClickListener(new MyClickListener());
+//        binding.taskBar2.setOnClickListener(new MyClickListener());
+//        binding.taskBar3.setOnClickListener(new MyClickListener());
+//        binding.taskBar4.setOnClickListener(new MyClickListener());
+//        binding.taskBar5.setOnClickListener(new MyClickListener());
+//        binding.taskBar6.setOnClickListener(new MyClickListener());
+//
+//        setDropListeners(currentRow);
         setContentView(view);
     }
 
@@ -130,10 +157,12 @@ public class Main3Activity extends AppCompatActivity {
         check.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                pegCarrier = null;
+                dragValue = false;
                 if (boxesFilled == 4) {
                     check.setVisibility(View.INVISIBLE);
                     boxesFilled = 0;
-                    setDragListeners(row+1);
+                    setDropListeners(row+1);
                 }
             }
         });
@@ -145,15 +174,16 @@ public class Main3Activity extends AppCompatActivity {
         System.out.println("Check removed row=" + row);
     }
 
-    private void setDragListeners(int row) {
+    private void setDropListeners(int row) {
         if (row > 0) {
-            nullDragListeners(row-1);
+            nullDropListeners(row-1);
         }
         if (row < nRows) {
             int startIndex = row*4;
             for (int i = startIndex; i < startIndex+4; ++i) {
                 View box = boxes.get(i);
-                box.setOnDragListener(new MyDragListener());
+                box.setOnClickListener(new MyDropListener());
+//                box.setOnDragListener(new MyDragListener());
                 box.setVisibility(View.VISIBLE);
             }
             System.out.println("Drag listeners set. row=" + row);
@@ -164,73 +194,123 @@ public class Main3Activity extends AppCompatActivity {
         }
     }
 
-    private void nullDragListeners(int row) {
+    private void nullDropListeners(int row) {
         int startIndex = row*4;
         for (int i = startIndex; i < startIndex+4; ++i) {
             View box = boxes.get(i);
-            box.setOnDragListener(null);
+            box.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    dragValue = false;
+                    pegCarrier = null;
+                    dropValue = false;
+                }
+            });
         }
         System.out.println("Drag listeners null. row=" + row);
     }
 
-    private static class MyClickListener implements View.OnClickListener {
-        @RequiresApi(api = Build.VERSION_CODES.N)
+    private class MyClickListener implements View.OnClickListener {
+//        @RequiresApi(api = Build.VERSION_CODES.N)
         public void onClick(View v) {
-            ClipData data = ClipData.newPlainText("", "");
-            View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(v);
-            v.startDragAndDrop(data, shadowBuilder, v, 0);
+
+            pegCarrier = new DragAndDrop(v, v.getBackground());
+//            ClipData data = ClipData.newPlainText("", "");
+//            View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(v);
+//            v.startDragAndDrop(data, shadowBuilder, v, 0);
         }
     }
 
-    private class MyDragListener implements View.OnDragListener {
+    private static class DragAndDrop {
+        private Drawable background;
+        private View view;
+        private DragAndDrop(View view, Drawable background) {
+            this.view = view;
+            this.background = background;
+        }
+        public View getView() {
+            return view;
+        }
+        private Drawable getBackground() {
+            return background;
+        }
+    }
+
+    private class MyDropListener implements View.OnClickListener {
         private boolean hasPeg = false;
 
-        @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-        @Override
-        public boolean onDrag(View v, DragEvent event) {
-            int action = event.getAction();
-            View view = (View) event.getLocalState();
-            Rect bounds = view.getBackground().getBounds();
-            System.out.println("Top="+bounds.top+" Bottom="+bounds.bottom+
-                    " Right="+bounds.right+" Left="+bounds.left);
-
-            switch (action) {
-            case DragEvent.ACTION_DRAG_STARTED:
-                if (!hasPeg) {
-                    v.setBackground(getDrawable(R.drawable.highlight));
+//        @RequiresApi(api = Build.VERSION_CODES.N)
+        @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+        public void onClick(View v) {
+            if (dragValue) {
+                v.setBackground(pegCarrier.getBackground());
+                dropValue = true;
+                pegCarrier = null;
+                dragValue = false;
+                hasPeg = true;
+                ++boxesFilled;
+                if (boxesFilled == 4) {
+                    View check = checks.get(currentRow);
+                    ++currentRow;
+                    check.setVisibility(View.VISIBLE);
                 }
-                System.out.println("Drag started. hasPeg="+hasPeg);
-                break;
-            case DragEvent.ACTION_DROP:
-                v.setBackground(view.getBackground());
-                bounds = view.getBackground().getBounds();
-                System.out.println("Top="+bounds.top+" Bottom="+bounds.bottom+
-                        " Right="+bounds.right+" Left="+bounds.left);
-                if (!hasPeg) {
-                    hasPeg = true;
-                    ++boxesFilled;
-                    if (boxesFilled == 4) {
-                        View check = checks.get(currentRow);
-                        ++currentRow;
-                        check.setVisibility(View.VISIBLE);
-                    }
-                    System.out.println("Drag drop. Boxes filled: " + boxesFilled);
-                }
-                break;
-            case DragEvent.ACTION_DRAG_ENDED:
-                bounds = view.getBackground().getBounds();
-                System.out.println("Top="+bounds.top+" Bottom="+bounds.bottom+
-                        " Right="+bounds.right+" Left="+bounds.left);
-                if (!hasPeg) {
-                    v.setBackground(null);
-                }
-                System.out.println("Drag ended");
-                break;
-            default:
-                break;
+                System.out.println("Drag drop. Boxes filled: " + boxesFilled);
             }
-            return true;
+//            ClipData data = ClipData.newPlainText("", "");
+//            View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(v);
+//            v.startDragAndDrop(data, shadowBuilder, v, 0);
         }
     }
+
+//    private class MyDragListener implements View.OnDragListener {
+//        private boolean hasPeg = false;
+//
+//        @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+//        @Override
+//        public boolean onDrag(View v, DragEvent event) {
+//            int action = event.getAction();
+//            View view = (View) event.getLocalState();
+//            Rect bounds = view.getBackground().getBounds();
+//            System.out.println("Top="+bounds.top+" Bottom="+bounds.bottom+
+//                    " Right="+bounds.right+" Left="+bounds.left);
+//
+//            switch (action) {
+//            case DragEvent.ACTION_DRAG_STARTED:
+//                if (!hasPeg) {
+//                    v.setBackground(getDrawable(R.drawable.highlight));
+//                }
+//                System.out.println("Drag started. hasPeg="+hasPeg);
+//                break;
+//            case DragEvent.ACTION_DROP:
+//                v.setBackground(view.getBackground());
+//                bounds = view.getBackground().getBounds();
+//                System.out.println("Top="+bounds.top+" Bottom="+bounds.bottom+
+//                        " Right="+bounds.right+" Left="+bounds.left);
+//                if (!hasPeg) {
+//                    hasPeg = true;
+//                    ++boxesFilled;
+//                    if (boxesFilled == 4) {
+//                        View check = checks.get(currentRow);
+//                        ++currentRow;
+//                        check.setVisibility(View.VISIBLE);
+//                    }
+//                    System.out.println("Drag drop. Boxes filled: " + boxesFilled);
+//                }
+//                break;
+//            case DragEvent.ACTION_DRAG_ENDED:
+//                bounds = view.getBackground().getBounds();
+//                System.out.println("Top="+bounds.top+" Bottom="+bounds.bottom+
+//                        " Right="+bounds.right+" Left="+bounds.left);
+//                if (!hasPeg) {
+//                    v.setBackground(null);
+//                }
+//                System.out.println("Drag ended");
+//                break;
+//            default:
+//                break;
+//            }
+//            return true;
+//        }
+//    }
 }
 
