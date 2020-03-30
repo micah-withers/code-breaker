@@ -1,5 +1,4 @@
-US1: As a user, I want to see play options such as one or two player modes on game load 
-	so that I can choose which mode to play. Non-functional buttons will be labeled "COMING SOON".
+US1: As a user, I want to see a play button that I can click so that I can start a game. 
 	
 US2: As a user, on click of "One Player", I want to see a game board with 10 rows of holes so that 
 	I have places to put my guesses.
