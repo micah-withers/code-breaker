@@ -3,7 +3,6 @@ package com.example.codebreaker;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
-//import android.graphics.drawable.Drawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
@@ -241,37 +240,22 @@ public class Main3Activity extends AppCompatActivity {
 //        @RequiresApi(api = Build.VERSION_CODES.N)
         @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
         public void onClick(View v) {
-            pegCarrier = new DragAndDrop(v, v.getBackground());
+            pegCarrier = new DragAndDrop(v.getBackground());
             toggleHighlight();
-//            ClipData data = ClipData.newPlainText("", "");
-//            View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(v);
-//            v.startDragAndDrop(data, shadowBuilder, v, 0);
         }
     }
 
     private class DragAndDrop {
         private Drawable background;
-        private View view;
-        private DragAndDrop(View view, Drawable background) {
+        private DragAndDrop(Drawable background) {
+            dropValue = false;
             dragValue = true;
-            this.view = view;
             this.background = background;
             System.out.println("DragAndDrop created");
-        }
-        private View getView() {
-            return view;
         }
         private Drawable getBackground() {
             return background;
         }
-    }
-
-    public View getDragAndDropView() {
-        return pegCarrier.getView();
-    }
-
-    public ArrayList<View> getBoxes() {
-        return (ArrayList<View>) boxes.clone();
     }
 
     private class MyDropListener implements View.OnClickListener {
@@ -295,61 +279,7 @@ public class Main3Activity extends AppCompatActivity {
                 toggleHighlight();
                 System.out.println("false dragValue");
             }
-//            ClipData data = ClipData.newPlainText("", "");
-//            View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(v);
-//            v.startDragAndDrop(data, shadowBuilder, v, 0);
         }
     }
-
-//    private class MyDragListener implements View.OnDragListener {
-//        private boolean hasPeg = false;
-//
-//        @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-//        @Override
-//        public boolean onDrag(View v, DragEvent event) {
-//            int action = event.getAction();
-//            View view = (View) event.getLocalState();
-//            Rect bounds = view.getBackground().getBounds();
-//            System.out.println("Top="+bounds.top+" Bottom="+bounds.bottom+
-//                    " Right="+bounds.right+" Left="+bounds.left);
-//
-//            switch (action) {
-//            case DragEvent.ACTION_DRAG_STARTED:
-//                if (!hasPeg) {
-//                    v.setBackground(getDrawable(R.drawable.highlight));
-//                }
-//                System.out.println("Drag started. hasPeg="+hasPeg);
-//                break;
-//            case DragEvent.ACTION_DROP:
-//                v.setBackground(view.getBackground());
-//                bounds = view.getBackground().getBounds();
-//                System.out.println("Top="+bounds.top+" Bottom="+bounds.bottom+
-//                        " Right="+bounds.right+" Left="+bounds.left);
-//                if (!hasPeg) {
-//                    hasPeg = true;
-//                    ++boxesFilled;
-//                    if (boxesFilled == 4) {
-//                        View check = checks.get(currentRow);
-//                        ++currentRow;
-//                        check.setVisibility(View.VISIBLE);
-//                    }
-//                    System.out.println("Drag drop. Boxes filled: " + boxesFilled);
-//                }
-//                break;
-//            case DragEvent.ACTION_DRAG_ENDED:
-//                bounds = view.getBackground().getBounds();
-//                System.out.println("Top="+bounds.top+" Bottom="+bounds.bottom+
-//                        " Right="+bounds.right+" Left="+bounds.left);
-//                if (!hasPeg) {
-//                    v.setBackground(null);
-//                }
-//                System.out.println("Drag ended");
-//                break;
-//            default:
-//                break;
-//            }
-//            return true;
-//        }
-//    }
 }
 
