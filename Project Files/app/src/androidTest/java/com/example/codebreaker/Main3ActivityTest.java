@@ -48,7 +48,7 @@ public class Main3ActivityTest {
     public void clickPegs() {
         onView(withId(R.id.taskBar1))
                 .perform(click());
-        ViewInteraction appCompatScroll = onView(withId(R.id.box11);
+        ViewInteraction appCompatScroll = onView(withId(R.id.box11));
         appCompatScroll.perform(scrollTo());
 //        onView(withId(R.id.box11))
 //                .perform(click());
