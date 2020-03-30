@@ -176,9 +176,9 @@ public class Main3Activity extends AppCompatActivity {
     private static class MyClickListener implements View.OnClickListener {
         @RequiresApi(api = Build.VERSION_CODES.N)
         public void onClick(View v) {
-//            ClipData data = ClipData.newPlainText("", "");
-//            View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(v);
-//            v.startDragAndDrop(data, shadowBuilder, v, 0);
+            ClipData data = ClipData.newPlainText("", "");
+            View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(v);
+            v.startDragAndDrop(data, shadowBuilder, v, 0);
         }
     }
 
