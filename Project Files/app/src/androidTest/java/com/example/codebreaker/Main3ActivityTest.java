@@ -1,5 +1,7 @@
 package com.example.codebreaker;
 
+import android.view.View;
+
 import androidx.test.espresso.ViewInteraction;
 import androidx.test.rule.ActivityTestRule;
 
@@ -43,6 +45,16 @@ public class Main3ActivityTest {
         onView(withId(R.id.box11))
                 .perform(click());
         assertTrue(main3ActivityClass.dropValue());
+    }
+
+    @Test
+    public void generateCode() {
+        Main3Activity main3ActivityClass = mActivityRule.getActivity();
+        assertEquals(main3ActivityClass.getPegCode().size(), 4);
+        for (View v:
+                main3ActivityClass.getPegCode()) {
+            assertNotNull(v);
+        }
     }
 
     @Test

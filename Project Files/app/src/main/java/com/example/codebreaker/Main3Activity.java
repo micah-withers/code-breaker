@@ -15,8 +15,8 @@ import com.example.codebreaker.databinding.ActivityMain3Binding;
 import java.util.ArrayList;
 
 public class Main3Activity extends AppCompatActivity {
-    private String pegList[] = {"red", "pink", "orange", "yellow", "green", "blue"};
-    private ArrayList<String> pegCode = new ArrayList<String>();
+    private ArrayList<View> pegList;
+    private ArrayList<View> pegCode;
 
     com.example.codebreaker.databinding.ActivityMain3Binding binding;
     ArrayList<View> boxes;
@@ -46,7 +46,8 @@ public class Main3Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        pegList = new ArrayList<>();
+        pegCode = new ArrayList<>();
         dragValue = false;
         dropValue = false;
         boxes = new ArrayList<>();
@@ -76,6 +77,7 @@ public class Main3Activity extends AppCompatActivity {
         });
 
         bindBoxes();
+        generateCode();
 
         for (View v: boxes) {
             v.setBackground(null);
@@ -197,14 +199,24 @@ public class Main3Activity extends AppCompatActivity {
         });
     }
 
-    void generateCode() {
+    private void generateCode() {
         // TODO : generate 4 random integers (0-5) to index in pegList and add to pegCode
         //peg list has all the colors, so the for loop, put i in the for loop and will be the index of the new list created
+        pegList.add(binding.taskBar1);
+        pegList.add(binding.taskBar2);
+        pegList.add(binding.taskBar3);
+        pegList.add(binding.taskBar4);
+        pegList.add(binding.taskBar5);
+        pegList.add(binding.taskBar6);
 
-        for(int i = 0; i < 4; i ++) {
-            int randomNum = (int)(Math.random() *5);
-            pegCode.add(pegList[randomNum]);
+        for(int i = 0; i < boxesPerRow; i ++) {
+            int randomNum = (int)(Math.random() *6);
+            pegCode.add(pegList.get(randomNum));
         }
+    }
+
+    public ArrayList<View> getPegCode() {
+        return (ArrayList<View>) pegCode.clone();
     }
 
     private void nullCheckButton(int row) {
