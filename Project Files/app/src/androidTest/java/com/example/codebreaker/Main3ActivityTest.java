@@ -17,8 +17,6 @@ import static androidx.test.espresso.matcher.ViewMatchers.withId;
 
 import static org.junit.Assert.*;
 
-
-
 public class Main3ActivityTest {
     @Rule
     public ActivityTestRule<Main3Activity> mActivityRule =
@@ -80,13 +78,15 @@ public class Main3ActivityTest {
         onView(withId(R.id.box14))
                 .perform(click());
 
-        assertEquals(main3ActivityClass.getBoxesFilled(), 4);
-        assertEquals(main3ActivityClass.getCurrentRow(), 0);
+        assertEquals(4, main3ActivityClass.getBoxesFilled());
+        assertEquals(0, main3ActivityClass.getCurrentRow());
+
 
         onView(withId(R.id.check1))
                 .perform(click());
 
-        assertEquals(main3ActivityClass.getBoxesFilled(), 1);
+        assertEquals(0, main3ActivityClass.getBoxesFilled());
+        assertEquals(1, main3ActivityClass.getCurrentRow());
 
         onView(withId(R.id.taskBar1))
                 .perform(click());
@@ -99,5 +99,7 @@ public class Main3ActivityTest {
         onView(withId(R.id.box21))
                 .perform(click());
         assertTrue(main3ActivityClass.dropValue());
+
+        assertEquals(1, main3ActivityClass.getBoxesFilled());
     }
 }

@@ -162,6 +162,27 @@ public class Main3Activity extends AppCompatActivity {
         boxes.add(binding.box104);
     }
 
+
+    private void generateCode() {
+        // TODO : generate 4 random integers (0-5) to index in pegList and add to pegCode
+        //peg list has all the colors, so the for loop, put i in the for loop and will be the index of the new list created
+        pegList.add(binding.taskBar1);
+        pegList.add(binding.taskBar2);
+        pegList.add(binding.taskBar3);
+        pegList.add(binding.taskBar4);
+        pegList.add(binding.taskBar5);
+        pegList.add(binding.taskBar6);
+
+        for(int i = 0; i < boxesPerRow; i ++) {
+            int randomNum = (int)(Math.random() *6);
+            pegCode.add(pegList.get(randomNum));
+        }
+    }
+
+    public ArrayList<View> getPegCode() {
+        return (ArrayList<View>) pegCode.clone();
+    }
+
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void toggleHighlight() {
         int boxIndex = currentRow*boxesPerRow;
@@ -189,6 +210,7 @@ public class Main3Activity extends AppCompatActivity {
                 dragValue = false;
                 if (boxesFilled == boxesPerRow) {
                     check.setVisibility(View.INVISIBLE);
+                    ++currentRow;
                     boxesFilled = 0;
                     for (int i = 0; i < boxesPerRow; ++i) {
                         boxStatuses[i] = false;
@@ -197,26 +219,6 @@ public class Main3Activity extends AppCompatActivity {
                 }
             }
         });
-    }
-
-    private void generateCode() {
-        // TODO : generate 4 random integers (0-5) to index in pegList and add to pegCode
-        //peg list has all the colors, so the for loop, put i in the for loop and will be the index of the new list created
-        pegList.add(binding.taskBar1);
-        pegList.add(binding.taskBar2);
-        pegList.add(binding.taskBar3);
-        pegList.add(binding.taskBar4);
-        pegList.add(binding.taskBar5);
-        pegList.add(binding.taskBar6);
-
-        for(int i = 0; i < boxesPerRow; i ++) {
-            int randomNum = (int)(Math.random() *6);
-            pegCode.add(pegList.get(randomNum));
-        }
-    }
-
-    public ArrayList<View> getPegCode() {
-        return (ArrayList<View>) pegCode.clone();
     }
 
     private void nullCheckButton(int row) {
@@ -234,7 +236,6 @@ public class Main3Activity extends AppCompatActivity {
             for (int i = startIndex; i < startIndex+boxesPerRow; ++i) {
                 View box = boxes.get(i);
                 box.setOnClickListener(new MyDropListener());
-//                box.setOnDragListener(new MyDragListener());
                 box.setVisibility(View.VISIBLE);
             }
             System.out.println("Drag listeners set. row=" + row);
@@ -284,20 +285,25 @@ public class Main3Activity extends AppCompatActivity {
     }
 
     private class MyDropListener implements View.OnClickListener {
+        private boolean hasPeg = false;
         @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
         public void onClick(View v) {
             if (dragValue) {
+
                 v.setBackground(pegCarrier.getBackground());
                 dropValue = true;
                 pegCarrier = null;
                 dragValue = false;
                 boxStatuses[boxes.indexOf(v) % boxesPerRow] = true;
-                ++boxesFilled;
-                if (boxesFilled == boxesPerRow) {
-                    View check = checks.get(currentRow);
-                    ++currentRow;
-                    check.setVisibility(View.VISIBLE);
+                if (!hasPeg) {
+                    hasPeg = true;
+                    ++boxesFilled;
+                    if (boxesFilled == boxesPerRow) {
+                        View check = checks.get(currentRow);
+                        check.setVisibility(View.VISIBLE);
+                    }
                 }
+
                 System.out.println("Drag drop. Boxes filled: " + boxesFilled);
             }
             else {
