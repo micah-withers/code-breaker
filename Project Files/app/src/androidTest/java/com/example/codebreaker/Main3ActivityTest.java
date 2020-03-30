@@ -20,6 +20,7 @@ import org.junit.Test;
 //import static androidx.core.content.ContextCompat.startActivity;
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
+import static androidx.test.espresso.action.ViewActions.scrollTo;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 //import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 //import static androidx.test.espresso.matcher.ViewMatchers.withId;
@@ -47,8 +48,10 @@ public class Main3ActivityTest {
     public void clickPegs() {
         onView(withId(R.id.taskBar1))
                 .perform(click());
-        onView(withId(R.id.box11))
-                .perform(click());
+        ViewInteraction appCompatScroll = onView(withId(R.id.box11);
+        appCompatScroll.perform(scrollTo());
+//        onView(withId(R.id.box11))
+//                .perform(click());
 //        onView(withId(R.id.taskBar3))
 //                .perform(click());
 //        onView(withId(R.id.taskBar5))
