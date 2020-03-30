@@ -19,8 +19,8 @@ import org.junit.runner.RunWith;
 
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
-import static androidx.test.espresso.action.ViewActions.longClick;
 import static androidx.test.espresso.action.ViewActions.scrollTo;
+import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
@@ -28,13 +28,13 @@ import static org.hamcrest.Matchers.allOf;
 
 @LargeTest
 @RunWith(AndroidJUnit4.class)
-public class MainActivityTest2 {
+public class MainActivityTest4 {
 
     @Rule
     public ActivityTestRule<MainActivity> mActivityTestRule = new ActivityTestRule<>(MainActivity.class);
 
     @Test
-    public void mainActivityTest2() {
+    public void mainActivityTest4() {
         ViewInteraction appCompatButton = onView(
                 allOf(withId(R.id.play1Button), withText("One Player"),
                         childAtPosition(
@@ -46,7 +46,7 @@ public class MainActivityTest2 {
         appCompatButton.perform(click());
 
         ViewInteraction appCompatScroll = onView(
-                withId(R.id.box1_1)
+                withId(R.id.box11)
         );
         appCompatScroll.perform(scrollTo());
 
@@ -58,57 +58,18 @@ public class MainActivityTest2 {
                                         0),
                                 2),
                         isDisplayed()));
-        appCompatTextView.perform(longClick());
+        appCompatTextView.perform(click());
 
         ViewInteraction appCompatTextView2 = onView(
-                allOf(withId(R.id.taskBar2),
+                allOf(withId(R.id.box11),
                         childAtPosition(
-                                childAtPosition(
-                                        withId(android.R.id.content),
-                                        0),
-                                3),
-                        isDisplayed()));
-        appCompatTextView2.perform(longClick());
-
-        ViewInteraction appCompatTextView3 = onView(
-                allOf(withId(R.id.taskBar3),
-                        childAtPosition(
-                                childAtPosition(
-                                        withId(android.R.id.content),
-                                        0),
-                                4),
-                        isDisplayed()));
-        appCompatTextView3.perform(longClick());
-
-        ViewInteraction appCompatTextView4 = onView(
-                allOf(withId(R.id.taskBar4),
-                        childAtPosition(
-                                childAtPosition(
-                                        withId(android.R.id.content),
-                                        0),
+                                allOf(withId(R.id.relativeLayout),
+                                        childAtPosition(
+                                                withId(R.id.scrollView2),
+                                                0)),
                                 5),
                         isDisplayed()));
-        appCompatTextView4.perform(longClick());
-
-        ViewInteraction appCompatTextView5 = onView(
-                allOf(withId(R.id.taskBar6),
-                        childAtPosition(
-                                childAtPosition(
-                                        withId(android.R.id.content),
-                                        0),
-                                7),
-                        isDisplayed()));
-        appCompatTextView5.perform(longClick());
-
-        ViewInteraction appCompatTextView6 = onView(
-                allOf(withId(R.id.taskBar5),
-                        childAtPosition(
-                                childAtPosition(
-                                        withId(android.R.id.content),
-                                        0),
-                                6),
-                        isDisplayed()));
-        appCompatTextView6.perform(longClick());
+        appCompatTextView2.perform(click());
     }
 
     private static Matcher<View> childAtPosition(

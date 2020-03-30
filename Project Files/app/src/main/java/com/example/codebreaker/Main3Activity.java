@@ -56,7 +56,7 @@ public class Main3Activity extends AppCompatActivity {
         checks.add(binding.check10);
 
         for (Button check : checks) {
-            check.setVisibility(View.INVISIBLE);
+            check.setVisibility(View.GONE);
         }
 
         binding.taskBar1.setOnClickListener(new MyClickListener());
@@ -176,9 +176,9 @@ public class Main3Activity extends AppCompatActivity {
     private static class MyClickListener implements View.OnClickListener {
         @RequiresApi(api = Build.VERSION_CODES.N)
         public void onClick(View v) {
-            ClipData data = ClipData.newPlainText("", "");
-            View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(v);
-            v.startDragAndDrop(data, shadowBuilder, v, 0);
+//            ClipData data = ClipData.newPlainText("", "");
+//            View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(v);
+//            v.startDragAndDrop(data, shadowBuilder, v, 0);
         }
     }
 
