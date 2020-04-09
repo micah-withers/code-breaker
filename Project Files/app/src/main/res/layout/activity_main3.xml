@@ -27,12 +27,10 @@
                 android:id="@+id/board"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="67dp"
                 android:adjustViewBounds="true"
                 android:contentDescription="@string/game_board"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/board" />
+                app:srcCompat="@drawable/board"
+                tools:layout_editor_absoluteY="67dp" />
 
             <TextView
                 android:id="@+id/box101"
@@ -265,7 +263,7 @@
                 app:layout_constraintStart_toStartOf="@+id/board" />
 
             <TextView
-                android:id="@+id/box"
+                android:id="@+id/fb13"
                 android:layout_width="14dp"
                 android:layout_height="14dp"
                 android:layout_marginStart="71dp"
@@ -275,6 +273,442 @@
                 android:text="@string/dropBox"
                 app:layout_constraintBottom_toBottomOf="@+id/board"
                 app:layout_constraintStart_toStartOf="@+id/board" />
+
+            <TextView
+                android:id="@+id/fb11"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_marginStart="71dp"
+                android:layout_marginLeft="71dp"
+                android:layout_marginBottom="3dp"
+                android:background="@drawable/highlight"
+                android:text="@string/dropBox"
+                app:layout_constraintBottom_toTopOf="@+id/fb13"
+                app:layout_constraintStart_toStartOf="@+id/board" />
+
+            <TextView
+                android:id="@+id/fb23"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_marginStart="71dp"
+                android:layout_marginLeft="71dp"
+                android:layout_marginBottom="49dp"
+                android:background="@drawable/highlight"
+                android:text="@string/dropBox"
+                app:layout_constraintBottom_toTopOf="@+id/fb11"
+                app:layout_constraintStart_toStartOf="@+id/board" />
+
+            <TextView
+                android:id="@+id/fb22"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_marginStart="1dp"
+                android:layout_marginLeft="1dp"
+                android:layout_marginEnd="22dp"
+                android:layout_marginRight="22dp"
+                android:layout_marginBottom="2dp"
+                android:background="@drawable/highlight"
+                android:text="@string/dropBox"
+                app:layout_constraintBottom_toTopOf="@+id/fb24"
+                app:layout_constraintEnd_toStartOf="@+id/box21"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/fb21" />
+
+            <TextView
+                android:id="@+id/fb24"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_marginStart="1dp"
+                android:layout_marginLeft="1dp"
+                android:layout_marginEnd="22dp"
+                android:layout_marginRight="22dp"
+                android:layout_marginBottom="49dp"
+                android:background="@drawable/highlight"
+                android:text="@string/dropBox"
+                app:layout_constraintBottom_toTopOf="@+id/fb12"
+                app:layout_constraintEnd_toStartOf="@+id/box21"
+                app:layout_constraintStart_toEndOf="@+id/fb23" />
+
+            <TextView
+                android:id="@+id/fb21"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_marginStart="71dp"
+                android:layout_marginLeft="71dp"
+                android:layout_marginBottom="2dp"
+                android:background="@drawable/highlight"
+                android:text="@string/dropBox"
+                app:layout_constraintBottom_toTopOf="@+id/fb23"
+                app:layout_constraintStart_toStartOf="@+id/board" />
+
+            <TextView
+                android:id="@+id/fb33"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_marginStart="72dp"
+                android:layout_marginLeft="72dp"
+                android:layout_marginBottom="52dp"
+                android:background="@drawable/highlight"
+                android:text="@string/dropBox"
+                app:layout_constraintBottom_toTopOf="@+id/fb21"
+                app:layout_constraintStart_toStartOf="@+id/board" />
+
+            <TextView
+                android:id="@+id/fb34"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_marginStart="1dp"
+                android:layout_marginLeft="1dp"
+                android:layout_marginEnd="22dp"
+                android:layout_marginRight="22dp"
+                android:layout_marginBottom="52dp"
+                android:background="@drawable/highlight"
+                android:text="@string/dropBox"
+                app:layout_constraintBottom_toTopOf="@+id/fb22"
+                app:layout_constraintEnd_toStartOf="@+id/box31"
+                app:layout_constraintStart_toEndOf="@+id/fb33" />
+
+            <TextView
+                android:id="@+id/fb32"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_marginStart="1dp"
+                android:layout_marginLeft="1dp"
+                android:layout_marginEnd="22dp"
+                android:layout_marginRight="22dp"
+                android:layout_marginBottom="2dp"
+                android:background="@drawable/highlight"
+                android:text="@string/dropBox"
+                app:layout_constraintBottom_toTopOf="@+id/fb34"
+                app:layout_constraintEnd_toStartOf="@+id/box31"
+                app:layout_constraintStart_toEndOf="@+id/fb31" />
+
+            <TextView
+                android:id="@+id/fb31"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_marginStart="72dp"
+                android:layout_marginLeft="72dp"
+                android:layout_marginBottom="2dp"
+                android:background="@drawable/highlight"
+                android:text="@string/dropBox"
+                app:layout_constraintBottom_toTopOf="@+id/fb33"
+                app:layout_constraintStart_toStartOf="@+id/board" />
+
+            <TextView
+                android:id="@+id/fb43"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_marginStart="72dp"
+                android:layout_marginLeft="72dp"
+                android:layout_marginBottom="48dp"
+                android:background="@drawable/highlight"
+                android:text="@string/dropBox"
+                app:layout_constraintBottom_toTopOf="@+id/fb31"
+                app:layout_constraintStart_toStartOf="@+id/board" />
+
+            <TextView
+                android:id="@+id/fb44"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_marginStart="1dp"
+                android:layout_marginLeft="1dp"
+                android:layout_marginEnd="22dp"
+                android:layout_marginRight="22dp"
+                android:layout_marginBottom="48dp"
+                android:background="@drawable/highlight"
+                android:text="@string/dropBox"
+                app:layout_constraintBottom_toTopOf="@+id/fb32"
+                app:layout_constraintEnd_toStartOf="@+id/box41"
+                app:layout_constraintStart_toEndOf="@+id/fb43" />
+
+            <TextView
+                android:id="@+id/fb28"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_marginStart="1dp"
+                android:layout_marginLeft="1dp"
+                android:layout_marginEnd="22dp"
+                android:layout_marginRight="22dp"
+                android:layout_marginBottom="3dp"
+                android:background="@drawable/highlight"
+                android:text="@string/dropBox"
+                app:layout_constraintBottom_toTopOf="@+id/fb44"
+                app:layout_constraintEnd_toStartOf="@+id/box41"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/fb41" />
+
+            <TextView
+                android:id="@+id/fb41"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_marginStart="72dp"
+                android:layout_marginLeft="72dp"
+                android:layout_marginBottom="3dp"
+                android:background="@drawable/highlight"
+                android:text="@string/dropBox"
+                app:layout_constraintBottom_toTopOf="@+id/fb43"
+                app:layout_constraintStart_toStartOf="@+id/board" />
+
+            <TextView
+                android:id="@+id/fb54"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_marginStart="1dp"
+                android:layout_marginLeft="1dp"
+                android:layout_marginEnd="22dp"
+                android:layout_marginRight="22dp"
+                android:layout_marginBottom="49dp"
+                android:background="@drawable/highlight"
+                android:text="@string/dropBox"
+                app:layout_constraintBottom_toTopOf="@+id/fb28"
+                app:layout_constraintEnd_toStartOf="@+id/box51"
+                app:layout_constraintStart_toEndOf="@+id/fb53" />
+
+            <TextView
+                android:id="@+id/fb52"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_marginStart="1dp"
+                android:layout_marginLeft="1dp"
+                android:layout_marginEnd="22dp"
+                android:layout_marginRight="22dp"
+                android:layout_marginBottom="2dp"
+                android:background="@drawable/highlight"
+                android:text="@string/dropBox"
+                app:layout_constraintBottom_toTopOf="@+id/fb54"
+                app:layout_constraintEnd_toStartOf="@+id/box51"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/fb51" />
+
+            <TextView
+                android:id="@+id/fb53"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_marginStart="71dp"
+                android:layout_marginLeft="71dp"
+                android:layout_marginBottom="49dp"
+                android:background="@drawable/highlight"
+                android:text="@string/dropBox"
+                app:layout_constraintBottom_toTopOf="@+id/fb41"
+                app:layout_constraintStart_toStartOf="@+id/board" />
+
+            <TextView
+                android:id="@+id/fb51"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_marginStart="71dp"
+                android:layout_marginLeft="71dp"
+                android:layout_marginBottom="2dp"
+                android:background="@drawable/highlight"
+                android:text="@string/dropBox"
+                app:layout_constraintBottom_toTopOf="@+id/fb53"
+                app:layout_constraintStart_toStartOf="@+id/board" />
+
+            <TextView
+                android:id="@+id/fb63"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_marginStart="71dp"
+                android:layout_marginLeft="71dp"
+                android:layout_marginBottom="52dp"
+                android:background="@drawable/highlight"
+                android:text="@string/dropBox"
+                app:layout_constraintBottom_toTopOf="@+id/fb51"
+                app:layout_constraintStart_toStartOf="@+id/board" />
+
+            <TextView
+                android:id="@+id/fb64"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_marginStart="1dp"
+                android:layout_marginLeft="1dp"
+                android:layout_marginEnd="22dp"
+                android:layout_marginRight="22dp"
+                android:layout_marginBottom="52dp"
+                android:background="@drawable/highlight"
+                android:text="@string/dropBox"
+                app:layout_constraintBottom_toTopOf="@+id/fb52"
+                app:layout_constraintEnd_toStartOf="@+id/box61"
+                app:layout_constraintStart_toEndOf="@+id/fb63" />
+
+            <TextView
+                android:id="@+id/fb62"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_marginStart="1dp"
+                android:layout_marginLeft="1dp"
+                android:layout_marginEnd="22dp"
+                android:layout_marginRight="22dp"
+                android:layout_marginBottom="2dp"
+                android:background="@drawable/highlight"
+                android:text="@string/dropBox"
+                app:layout_constraintBottom_toTopOf="@+id/fb64"
+                app:layout_constraintEnd_toStartOf="@+id/box61"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/fb61" />
+
+            <TextView
+                android:id="@+id/fb61"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_marginStart="71dp"
+                android:layout_marginLeft="71dp"
+                android:layout_marginBottom="2dp"
+                android:background="@drawable/highlight"
+                android:text="@string/dropBox"
+                app:layout_constraintBottom_toTopOf="@+id/fb63"
+                app:layout_constraintStart_toStartOf="@+id/board" />
+
+            <TextView
+                android:id="@+id/fb16"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_marginStart="71dp"
+                android:layout_marginLeft="7dp"
+                android:layout_marginBottom="50dp"
+                android:background="@drawable/highlight"
+                android:text="@string/dropBox"
+                app:layout_constraintBottom_toTopOf="@+id/fb61"
+                app:layout_constraintStart_toStartOf="@+id/board" />
+
+            <TextView
+                android:id="@+id/fb37"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_marginStart="1dp"
+                android:layout_marginLeft="1dp"
+                android:layout_marginEnd="22dp"
+                android:layout_marginRight="22dp"
+                android:layout_marginBottom="2dp"
+                android:background="@drawable/highlight"
+                android:text="@string/dropBox"
+                app:layout_constraintBottom_toTopOf="@+id/fb38"
+                app:layout_constraintEnd_toStartOf="@+id/box71"
+                app:layout_constraintStart_toEndOf="@+id/fb18" />
+
+            <TextView
+                android:id="@+id/fb38"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_marginStart="1dp"
+                android:layout_marginLeft="1dp"
+                android:layout_marginEnd="22dp"
+                android:layout_marginRight="22dp"
+                android:layout_marginBottom="50dp"
+                android:background="@drawable/highlight"
+                android:text="@string/dropBox"
+                app:layout_constraintBottom_toTopOf="@+id/fb62"
+                app:layout_constraintEnd_toStartOf="@+id/box71"
+                app:layout_constraintStart_toEndOf="@+id/fb16" />
+
+            <TextView
+                android:id="@+id/fb17"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_marginStart="72dp"
+                android:layout_marginLeft="72dp"
+                android:background="@drawable/highlight"
+                android:text="@string/dropBox"
+                app:layout_constraintStart_toStartOf="@+id/board"
+                tools:layout_editor_absoluteY="272dp" />
+
+            <TextView
+                android:id="@+id/fb19"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_marginStart="72dp"
+                android:layout_marginLeft="72dp"
+                android:background="@drawable/highlight"
+                android:text="@string/dropBox"
+                app:layout_constraintStart_toStartOf="@+id/board"
+                tools:layout_editor_absoluteY="254dp" />
+
+            <TextView
+                android:id="@+id/fb203"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_marginStart="68dp"
+                android:layout_marginLeft="68dp"
+                android:background="@drawable/highlight"
+                android:text="@string/dropBox"
+                app:layout_constraintStart_toStartOf="@+id/board"
+                tools:layout_editor_absoluteY="191dp" />
+
+            <TextView
+                android:id="@+id/fb212"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_marginStart="72dp"
+                android:layout_marginLeft="72dp"
+                android:background="@drawable/highlight"
+                android:text="@string/dropBox"
+                app:layout_constraintStart_toStartOf="@+id/board"
+                tools:layout_editor_absoluteY="173dp" />
+
+            <TextView
+                android:id="@+id/fb101"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_marginStart="68dp"
+                android:layout_marginLeft="68dp"
+                android:background="@drawable/highlight"
+                android:text="@string/dropBox"
+                app:layout_constraintStart_toStartOf="@+id/board"
+                tools:layout_editor_absoluteY="111dp" />
+
+            <TextView
+                android:id="@+id/fb100"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_marginStart="68dp"
+                android:layout_marginLeft="68dp"
+                android:background="@drawable/highlight"
+                android:text="@string/dropBox"
+                app:layout_constraintStart_toStartOf="@+id/board"
+                tools:layout_editor_absoluteY="97dp" />
+
+            <TextView
+                android:id="@+id/fb18"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_marginStart="71dp"
+                android:layout_marginLeft="71dp"
+                android:layout_marginBottom="2dp"
+                android:background="@drawable/highlight"
+                android:text="@string/dropBox"
+                app:layout_constraintBottom_toTopOf="@+id/fb16"
+                app:layout_constraintStart_toStartOf="@+id/board" />
+
+            <TextView
+                android:id="@+id/fb14"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_marginStart="1dp"
+                android:layout_marginLeft="1dp"
+                android:layout_marginEnd="22dp"
+                android:layout_marginRight="22dp"
+                android:layout_marginBottom="33dp"
+                android:background="@drawable/highlight"
+                android:text="@string/dropBox"
+                app:layout_constraintBottom_toBottomOf="@+id/board"
+                app:layout_constraintEnd_toStartOf="@+id/box11"
+                app:layout_constraintStart_toEndOf="@+id/fb13" />
+
+            <TextView
+                android:id="@+id/fb12"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_marginStart="1dp"
+                android:layout_marginLeft="1dp"
+                android:layout_marginEnd="22dp"
+                android:layout_marginRight="22dp"
+                android:layout_marginBottom="3dp"
+                android:background="@drawable/highlight"
+                android:text="@string/dropBox"
+                app:layout_constraintBottom_toTopOf="@+id/fb14"
+                app:layout_constraintEnd_toStartOf="@+id/box11"
+                app:layout_constraintStart_toEndOf="@+id/fb11" />
 
             <TextView
                 android:id="@+id/box74"
