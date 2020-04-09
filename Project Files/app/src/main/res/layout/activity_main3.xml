@@ -265,6 +265,18 @@
                 app:layout_constraintStart_toStartOf="@+id/board" />
 
             <TextView
+                android:id="@+id/box"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_marginStart="71dp"
+                android:layout_marginLeft="71dp"
+                android:layout_marginBottom="33dp"
+                android:background="@drawable/highlight"
+                android:text="@string/dropBox"
+                app:layout_constraintBottom_toBottomOf="@+id/board"
+                app:layout_constraintStart_toStartOf="@+id/board" />
+
+            <TextView
                 android:id="@+id/box74"
                 android:layout_width="33dp"
                 android:layout_height="32dp"

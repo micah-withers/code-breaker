@@ -16,7 +16,8 @@ import java.util.ArrayList;
 
 public class Main3Activity extends AppCompatActivity {
     private ArrayList<View> pegList;
-    private ArrayList<View> pegCode;
+    private ArrayList<Integer> pegCode;
+    private ArrayList<Integer> userCode;
 
     com.example.codebreaker.databinding.ActivityMain3Binding binding;
     ArrayList<View> boxes;
@@ -48,6 +49,7 @@ public class Main3Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         pegList = new ArrayList<>();
         pegCode = new ArrayList<>();
+        userCode = new ArrayList<>();
         dragValue = false;
         dropValue = false;
         boxes = new ArrayList<>();
@@ -57,6 +59,10 @@ public class Main3Activity extends AppCompatActivity {
         boxesPerRow = 4;
         boxesFilled = 0;
         boxStatuses = new boolean[boxesPerRow];
+
+        for (int i = 0; i < boxesPerRow; ++i) {
+            userCode.add(-1);
+        }
 
         for (int i = 0; i < boxesPerRow; ++i) {
             boxStatuses[i] = false;
@@ -174,11 +180,19 @@ public class Main3Activity extends AppCompatActivity {
         pegList.add(binding.taskBar6);
 
         for(int i = 0; i < boxesPerRow; i ++) {
-            int randomNum = (int)(Math.random() *6);
-            pegCode.add(pegList.get(randomNum));
+//            int randomNum = (int)(Math.random() *6);
+            pegCode.add((int)(Math.random() *6));
         }
+        for (int i = 0; i < pegCode.size(); ++i) {
+            if (i > 0) {
+                System.out.print(", ");
+            }
+            System.out.print(pegCode.get(i));
+        }
+        System.out.println();
     }
 
+    @SuppressWarnings("unchecked")
     public ArrayList<View> getPegCode() {
         return (ArrayList<View>) pegCode.clone();
     }
@@ -198,6 +212,15 @@ public class Main3Activity extends AppCompatActivity {
         }
     }
 
+    private boolean checkUserCode() {
+        for (int i = 0; i < boxesPerRow; ++i) {
+            if (!userCode.get(i).equals(pegCode.get(i))) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     private void setCheckButton(final int row) {
         if (row > 0) {
             nullCheckButton(row - 1);
@@ -210,6 +233,12 @@ public class Main3Activity extends AppCompatActivity {
                 dragValue = false;
                 if (boxesFilled == boxesPerRow) {
                     check.setVisibility(View.INVISIBLE);
+                    if (checkUserCode()) {
+                        nullDropListeners(currentRow);
+                        nullCheckButton(currentRow);
+                        System.out.println("User guessed correctly");
+                        return;
+                    }
                     ++currentRow;
                     boxesFilled = 0;
                     for (int i = 0; i < boxesPerRow; ++i) {
@@ -266,21 +295,27 @@ public class Main3Activity extends AppCompatActivity {
 //        @RequiresApi(api = Build.VERSION_CODES.N)
         @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
         public void onClick(View v) {
-            pegCarrier = new DragAndDrop(v.getBackground());
+            pegCarrier = new DragAndDrop(v.getBackground(), pegList.indexOf(v));
             toggleHighlight();
         }
     }
 
     private class DragAndDrop {
         private Drawable background;
-        private DragAndDrop(Drawable background) {
+        private int pegIndex;
+        private DragAndDrop(Drawable background, int pegIndex) {
             dropValue = false;
             dragValue = true;
             this.background = background;
             System.out.println("DragAndDrop created");
+            this.pegIndex = pegIndex;
+            System.out.println("Peg selected: "+pegIndex);
         }
         private Drawable getBackground() {
             return background;
+        }
+        private int getPegIndex() {
+            return pegIndex;
         }
     }
 
@@ -292,9 +327,9 @@ public class Main3Activity extends AppCompatActivity {
 
                 v.setBackground(pegCarrier.getBackground());
                 dropValue = true;
-                pegCarrier = null;
                 dragValue = false;
                 boxStatuses[boxes.indexOf(v) % boxesPerRow] = true;
+                userCode.add(boxes.indexOf(v) % boxesPerRow, pegCarrier.getPegIndex());    // Adds selected peg to userCode at index of box relative to current row
                 if (!hasPeg) {
                     hasPeg = true;
                     ++boxesFilled;
@@ -303,8 +338,8 @@ public class Main3Activity extends AppCompatActivity {
                         check.setVisibility(View.VISIBLE);
                     }
                 }
-
-                System.out.println("Drag drop. Boxes filled: " + boxesFilled);
+                System.out.println("Drag drop. Boxes filled: " + boxesFilled + " Peg: " + pegCarrier.getPegIndex());
+                pegCarrier = null;
             }
             else {
                 toggleHighlight();
