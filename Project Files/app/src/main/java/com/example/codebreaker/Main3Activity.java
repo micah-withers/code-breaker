@@ -250,8 +250,13 @@ public class Main3Activity extends AppCompatActivity {
     }
 
     @SuppressWarnings("unchecked")
-    public ArrayList<View> getPegCode() {
-        return (ArrayList<View>) pegCode.clone();
+    public ArrayList<Integer> getFeedback() {
+        return (ArrayList<Integer>) feedback.clone();
+    }
+
+    @SuppressWarnings("unchecked")
+    public ArrayList<Integer> getPegCode() {
+        return (ArrayList<Integer>) pegCode.clone();
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
