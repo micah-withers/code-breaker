@@ -15,14 +15,12 @@ import com.example.codebreaker.databinding.ActivityMain3Binding;
 import java.util.ArrayList;
 
 public class Main3Activity extends AppCompatActivity {
-    private ArrayList<View> pegList;
-    private ArrayList<Integer> pegCode;
-    private ArrayList<Integer> userCode;
 
     com.example.codebreaker.databinding.ActivityMain3Binding binding;
-    ArrayList<View> boxes;
-    ArrayList<Button> checks;
-    private int currentRow, nRows, boxesFilled, boxesPerRow;
+    private ArrayList<Integer> pegCode, userCode, feedback;
+    private ArrayList<View> pegList, boxes, fbList;
+    private ArrayList<Button> checks;
+    private int currentRow, nRows, boxesFilled, boxesPerRow, nPegs;
     private DragAndDrop pegCarrier;
     private boolean dragValue, dropValue;
     private boolean[] boxStatuses;
@@ -50,18 +48,25 @@ public class Main3Activity extends AppCompatActivity {
         pegList = new ArrayList<>();
         pegCode = new ArrayList<>();
         userCode = new ArrayList<>();
+        feedback = new ArrayList<>();
         dragValue = false;
         dropValue = false;
         boxes = new ArrayList<>();
         checks = new ArrayList<>();
+        fbList = new ArrayList<>();
         currentRow = 0;
         nRows = 10;
         boxesPerRow = 4;
+        nPegs = 6;
         boxesFilled = 0;
         boxStatuses = new boolean[boxesPerRow];
 
         for (int i = 0; i < boxesPerRow; ++i) {
             userCode.add(-1);
+        }
+
+        for (int i = 0; i < boxesPerRow; ++i) {
+            feedback.add(-1);
         }
 
         for (int i = 0; i < boxesPerRow; ++i) {
@@ -83,6 +88,7 @@ public class Main3Activity extends AppCompatActivity {
         });
 
         bindBoxes();
+        bindFeedback();
         generateCode();
 
         for (View v: boxes) {
@@ -168,6 +174,57 @@ public class Main3Activity extends AppCompatActivity {
         boxes.add(binding.box104);
     }
 
+    private void bindFeedback() {
+        fbList.add(binding.fb11);
+        fbList.add(binding.fb12);
+        fbList.add(binding.fb13);
+        fbList.add(binding.fb14);
+
+        fbList.add(binding.fb21);
+        fbList.add(binding.fb22);
+        fbList.add(binding.fb23);
+        fbList.add(binding.fb24);
+
+        fbList.add(binding.fb31);
+        fbList.add(binding.fb32);
+        fbList.add(binding.fb33);
+        fbList.add(binding.fb34);
+
+        fbList.add(binding.fb41);
+        fbList.add(binding.fb42);
+        fbList.add(binding.fb43);
+        fbList.add(binding.fb44);
+
+        fbList.add(binding.fb51);
+        fbList.add(binding.fb52);
+        fbList.add(binding.fb53);
+        fbList.add(binding.fb54);
+
+        fbList.add(binding.fb61);
+        fbList.add(binding.fb62);
+        fbList.add(binding.fb63);
+        fbList.add(binding.fb64);
+
+        fbList.add(binding.fb71);
+        fbList.add(binding.fb72);
+        fbList.add(binding.fb73);
+        fbList.add(binding.fb74);
+
+        fbList.add(binding.fb81);
+        fbList.add(binding.fb82);
+        fbList.add(binding.fb83);
+        fbList.add(binding.fb84);
+
+        fbList.add(binding.fb91);
+        fbList.add(binding.fb92);
+        fbList.add(binding.fb93);
+        fbList.add(binding.fb94);
+
+        fbList.add(binding.fb101);
+        fbList.add(binding.fb102);
+        fbList.add(binding.fb103);
+        fbList.add(binding.fb104);
+    }
 
     private void generateCode() {
         // TODO : generate 4 random integers (0-5) to index in pegList and add to pegCode
@@ -221,18 +278,77 @@ public class Main3Activity extends AppCompatActivity {
         return true;
     }
 
+    private int count(ArrayList<Integer> array, int value) {
+        int count = 0;
+        for (int i:
+             array) {
+            if (i == value) {
+                ++count;
+            }
+        }
+        return count;
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    private void getFeedback(int row) {
+        int[] pegsUsed = new int[nPegs];
+        int fbIndex = 0;
+        for (int i = 0; i < nPegs; ++i) {
+            pegsUsed[i] = count(pegCode, i);
+        }
+        for (int i = 0; i < boxesPerRow; ++i) {
+            feedback.set(i, -1);
+        }
+        for (int i = 0; i < boxesPerRow; ++i) {
+            int value = pegCode.get(i);
+            if (value == userCode.get(i)) {
+                feedback.set(fbIndex, 1);
+                --pegsUsed[value];
+                ++fbIndex;
+            }
+        }
+        for (int i = 0; i < boxesPerRow; ++i) {
+            int value = userCode.get(i);
+            if (value != pegCode.get(i) && pegsUsed[value] > 0) {
+                feedback.set(fbIndex, 0);
+                --pegsUsed[value];
+                ++fbIndex;
+            }
+        }
+        for (int i = 0; i < feedback.size(); ++i) {
+            if (i>0) {
+                System.out.print(", ");
+            }
+            System.out.print(feedback.get(i));
+        }
+        System.out.println();
+        int startIndex = boxesPerRow*row;
+        for (int i = startIndex; i < startIndex+boxesPerRow; ++i) {
+            switch (feedback.get(i % boxesPerRow)) {
+                case 1:
+                    fbList.get(i).setBackground(getDrawable(R.drawable.fb_red));
+                    break;
+                case 0:
+                    fbList.get(i).setBackground(getDrawable(R.drawable.fb_white));
+                    break;
+            }
+        }
+    }
+
     private void setCheckButton(final int row) {
         if (row > 0) {
             nullCheckButton(row - 1);
         }
         final Button check = checks.get(row);
         check.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
             @Override
             public void onClick(View v) {
                 pegCarrier = null;
                 dragValue = false;
                 if (boxesFilled == boxesPerRow) {
                     check.setVisibility(View.INVISIBLE);
+                    getFeedback(row);
                     if (checkUserCode()) {
                         nullDropListeners(currentRow);
                         nullCheckButton(currentRow);
@@ -329,7 +445,7 @@ public class Main3Activity extends AppCompatActivity {
                 dropValue = true;
                 dragValue = false;
                 boxStatuses[boxes.indexOf(v) % boxesPerRow] = true;
-                userCode.add(boxes.indexOf(v) % boxesPerRow, pegCarrier.getPegIndex());    // Adds selected peg to userCode at index of box relative to current row
+                userCode.set(boxes.indexOf(v) % boxesPerRow, pegCarrier.getPegIndex());    // Adds selected peg to userCode at index of box relative to current row
                 if (!hasPeg) {
                     hasPeg = true;
                     ++boxesFilled;

@@ -102,4 +102,9 @@ public class Main3ActivityTest {
 
         assertEquals(1, main3ActivityClass.getBoxesFilled());
     }
+
+    @Test
+    public void checkFeedback() {
+        
+    }
 }
