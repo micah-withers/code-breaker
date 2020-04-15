@@ -1208,6 +1208,156 @@
                 app:layout_constraintBottom_toBottomOf="@+id/board"
                 app:layout_constraintStart_toEndOf="@+id/box11" />
 
+            <TextView
+                android:id="@+id/row1Text"
+                android:layout_width="33dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginBottom="33dp"
+                android:gravity="center_horizontal"
+                android:text="@string/row1"
+                android:textAlignment="center"
+                android:textColor="@color/rowNum"
+                android:textSize="30sp"
+                app:layout_constraintBottom_toBottomOf="@+id/board"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/row2Text"
+                android:layout_width="33dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginBottom="48dp"
+                android:gravity="center_horizontal"
+                android:text="@string/row2"
+                android:textAlignment="center"
+                android:textColor="@color/rowNum"
+                android:textSize="30sp"
+                app:layout_constraintBottom_toTopOf="@+id/row1Text"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/row3Text"
+                android:layout_width="33dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginBottom="48dp"
+                android:gravity="center_horizontal"
+                android:text="@string/row3"
+                android:textAlignment="center"
+                android:textColor="@color/rowNum"
+                android:textSize="30sp"
+                app:layout_constraintBottom_toTopOf="@+id/row2Text"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/row4Text"
+                android:layout_width="33dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginBottom="48dp"
+                android:gravity="center_horizontal"
+                android:text="@string/row4"
+                android:textAlignment="center"
+                android:textColor="@color/rowNum"
+                android:textSize="30sp"
+                app:layout_constraintBottom_toTopOf="@+id/row3Text"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/row5Text"
+                android:layout_width="33dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginBottom="48dp"
+                android:gravity="center_horizontal"
+                android:text="@string/row5"
+                android:textAlignment="center"
+                android:textColor="@color/rowNum"
+                android:textSize="30sp"
+                app:layout_constraintBottom_toTopOf="@+id/row4Text"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/row6Text"
+                android:layout_width="33dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginBottom="52dp"
+                android:gravity="center_horizontal"
+                android:text="@string/row6"
+                android:textAlignment="center"
+                android:textColor="@color/rowNum"
+                android:textSize="30sp"
+                app:layout_constraintBottom_toTopOf="@+id/row5Text"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/row7Text"
+                android:layout_width="33dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginBottom="48dp"
+                android:gravity="center_horizontal"
+                android:text="@string/row7"
+                android:textAlignment="center"
+                android:textColor="@color/rowNum"
+                android:textSize="30sp"
+                app:layout_constraintBottom_toTopOf="@+id/row6Text"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/row8Text"
+                android:layout_width="33dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginBottom="48dp"
+                android:gravity="center_horizontal"
+                android:text="@string/row8"
+                android:textAlignment="center"
+                android:textColor="@color/rowNum"
+                android:textSize="30sp"
+                app:layout_constraintBottom_toTopOf="@+id/row7Text"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/row9Text"
+                android:layout_width="33dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginBottom="48dp"
+                android:gravity="center_horizontal"
+                android:text="@string/row9"
+                android:textAlignment="center"
+                android:textColor="@color/rowNum"
+                android:textSize="30sp"
+                app:layout_constraintBottom_toTopOf="@+id/row8Text"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/row10Text"
+                android:layout_width="39dp"
+                android:layout_height="34dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="48dp"
+                android:gravity="center_horizontal"
+                android:text="@string/row10"
+                android:textAlignment="center"
+                android:textColor="@color/rowNum"
+                android:textSize="30sp"
+                app:layout_constraintBottom_toTopOf="@+id/row9Text"
+                app:layout_constraintStart_toStartOf="parent" />
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
@@ -1219,7 +1369,9 @@
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent">
+
+    </LinearLayout>
 
     <TextView
         android:id="@+id/taskBar1"
@@ -1287,6 +1439,16 @@
         app:layout_constraintHorizontal_bias="0.887"
         app:layout_constraintStart_toStartOf="parent" />
 
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="417dp"
+        android:layout_height="87dp"
+        android:text="@string/play_again"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/barrier"

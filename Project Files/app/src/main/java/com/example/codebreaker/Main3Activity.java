@@ -3,6 +3,7 @@ package com.example.codebreaker;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
@@ -81,10 +82,12 @@ public class Main3Activity extends AppCompatActivity {
             @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
             @Override
             public void onClick(View v) {
-                dragValue = false;
-                pegCarrier = null;
-                dropValue = false;
-                toggleHighlight();
+                if (dragValue) {
+                    dragValue = false;
+                    pegCarrier = null;
+                    dropValue = false;
+                    toggleHighlight();
+                }
             }
         });
 
@@ -111,6 +114,13 @@ public class Main3Activity extends AppCompatActivity {
         for (Button check : checks) {   //  Makes all checks untouchable
             check.setVisibility(View.GONE);
         }
+
+        binding.button2.setOnClickListener(new View.OnClickListener() {     //  Setup Play Again button
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Main3Activity.this, Main2Activity.class));
+            }
+        });
 
         setDropListeners(currentRow);
         setContentView(view);
@@ -403,6 +413,7 @@ public class Main3Activity extends AppCompatActivity {
                                 codeBoxes) {
                             codeBox.setVisibility(View.VISIBLE);
                         }
+                        binding.button2.setVisibility(View.VISIBLE);
                         System.out.println("User guessed correctly");
                         return;
                     }
@@ -444,6 +455,7 @@ public class Main3Activity extends AppCompatActivity {
                     codeBoxes) {
                 codeBox.setVisibility(View.VISIBLE);
             }
+            binding.button2.setVisibility(View.VISIBLE);
             System.out.println("row exceeds nRows");
             System.out.println("User failed to guess code");
         }
@@ -519,9 +531,9 @@ public class Main3Activity extends AppCompatActivity {
                 pegCarrier = null;
             }
             else {
-                toggleHighlight();
                 System.out.println("false dragValue");
             }
+            toggleHighlight();
         }
     }
 }

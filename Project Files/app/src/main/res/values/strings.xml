@@ -14,8 +14,37 @@
     <string name="taskBarImg" />
     <string name="dropBox" />
     <string name="start_game"> Start</string>
-    <string name="rules">The goal of Code Breaker is to guess a secret code consisting of a series of 4
-colored pegs.\n \n Every time you guess, you get feedback that narrows down what the code is.\n \nThe winner is the player who solves his opponent's secret code with fewer
-guesses.</string>
+    <string name="rules">
+        You are a Code Breaker. The goal is to crack the code consisting of a series of 4 colored pegs.
+        \n \n Every time you guess, you get feedback that narrows down what the code is.
+        \n \n Break the code in 10 guesses or less to win!
+    </string>
     <string name="play_again">Play Again</string>
+    <string name="row1">1</string>
+    <string name="row2">2</string>
+    <string name="row3">3</string>
+    <string name="row4">4</string>
+    <string name="row5">5</string>
+    <string name="row6">6</string>
+    <string name="row7">7</string>
+    <string name="row8">8</string>
+    <string name="row9">9</string>
+    <string name="row10">10</string>
+    <string name="demoDesc1">There are six colored pegs in your toolkit</string>
+    <string name="demoDesc2">Scroll down to row 1 to start, then touch a peg and select a
+        spot to put it (active spots are highlighted)</string>
+    <string name="demoDesc3">A green checkmark appears once you fill in all four spots</string>
+    <string name="demoDesc4">Tap the checkmark to submit your code. Each time you
+        submit, your code is compared to the game\'s code and feedback is provided.</string>
+    <string name="demoDesc5">The feedback appears on the left. RED indicates that one part of
+        your code is the correct color and in the right place. WHITE indicates that one part
+        of your code is the correct color but in the wrong place. Any slots without a RED or
+        WHITE peg indicates that the color is not a part of the code. \n \n
+        THERE IS NO ORDER TO THE FEEDBACK INDICATORS. There can also be duplicates,
+        so don\'t count anything out too quickly!</string>
+    <string name="demoDesc6">Once you break the code all four indicators will be RED. \n \n
+        Don\'t worry if you don\'t get it in 10 tries, the code will appear at the top.
+        You\'ll get the hang of it and become a Master Code Breaker! Tap the Start button
+        when you feel comfortable with this task</string>
+    <string name="demoImg">Demo image</string>
 </resources>
