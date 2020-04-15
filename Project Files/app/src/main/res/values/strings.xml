@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Code Breaker</string>
     <string name="play1_button">Play</string>
-<!--    <string name="play2_button">Two Player</string>-->
+    <!--    <string name="play2_button">Two Player</string>-->
     <string name="master_pegs">Placeholder for generated codes to break</string>
     <string name="code_gen">Generate Code</string>
     <string name="game_board">Game board</string>
@@ -13,4 +13,9 @@
     <string name="tb6">blue</string>
     <string name="taskBarImg" />
     <string name="dropBox" />
+    <string name="start_game"> Start</string>
+    <string name="rules">The goal of Code Breaker is to guess a secret code consisting of a series of 4
+colored pegs. Every time you guess, you get feedback that narrows down what the code is. The winner is the player who solves his opponent's secret code with fewer
+guesses.</string>
+    <string name="play_again">Play Again</string>
 </resources>
