@@ -241,24 +241,24 @@ public class Main3Activity extends AppCompatActivity {
     //  Assigns colored pegs to code boxes and makes them invisible
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void generateCode() {
-        pegList.add(binding.taskBar1);
+        pegList.add(binding.taskBar1);      //  Adds all pegs in taskbar to ArrayList
         pegList.add(binding.taskBar2);
         pegList.add(binding.taskBar3);
         pegList.add(binding.taskBar4);
         pegList.add(binding.taskBar5);
         pegList.add(binding.taskBar6);
 
-        for (View v :
+        for (View v :                       //  Sets up Click Listeners for pegs in taskbar
                 pegList) {
             v.setOnClickListener(new MyClickListener());
         }
 
-        for (View v :
+        for (View v :                       // Sets code pegs invisible
                 codeBoxes) {
             v.setVisibility(View.INVISIBLE);
         }
 
-        for(int i = 0; i < boxesPerRow; i ++) {
+        for(int i = 0; i < boxesPerRow; i ++) {     //  Generates random code and sets code peg colors
             int randomNum = (int)(Math.random() *6);
             pegCode.add(randomNum);
             switch (randomNum) {
