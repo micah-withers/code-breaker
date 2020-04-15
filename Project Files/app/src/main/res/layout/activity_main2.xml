@@ -8,11 +8,12 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="397dp"
-        android:layout_height="304dp"
+        android:layout_width="387dp"
+        android:layout_height="wrap_content"
         android:text="@string/rules"
+        android:textSize="25sp"
         tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="137dp" />
+        tools:layout_editor_absoluteY="34dp" />
 
     <Button
         android:id="@+id/button"

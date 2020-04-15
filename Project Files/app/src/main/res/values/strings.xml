@@ -15,7 +15,7 @@
     <string name="dropBox" />
     <string name="start_game"> Start</string>
     <string name="rules">The goal of Code Breaker is to guess a secret code consisting of a series of 4
-colored pegs. Every time you guess, you get feedback that narrows down what the code is. The winner is the player who solves his opponent's secret code with fewer
+colored pegs.\n \n Every time you guess, you get feedback that narrows down what the code is.\n \nThe winner is the player who solves his opponent's secret code with fewer
 guesses.</string>
     <string name="play_again">Play Again</string>
 </resources>
