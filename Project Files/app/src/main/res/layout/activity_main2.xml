@@ -10,17 +10,17 @@
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="28dp"
         android:text="@string/start_game"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ScrollView
-        android:layout_width="403dp"
-        android:layout_height="646dp"
-        android:layout_marginBottom="21dp"
+        android:id="@+id/scrollViewDemo"
+        android:layout_width="match_parent"
+        android:layout_height="542dp"
+        android:layout_marginBottom="20dp"
         app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -53,10 +53,10 @@
                 android:id="@+id/imageView"
                 android:layout_width="248dp"
                 android:layout_height="60dp"
-                android:layout_marginLeft="80dp"
                 android:layout_marginStart="80dp"
-                app:srcCompat="@drawable/demo6"
-                android:contentDescription="@string/demoImg" />
+                android:layout_marginLeft="80dp"
+                android:contentDescription="@string/demoImg"
+                app:srcCompat="@drawable/demo6" />
 
             <TextView
                 android:id="@+id/textView4"
@@ -68,8 +68,8 @@
                 android:id="@+id/imageView2"
                 android:layout_width="248dp"
                 android:layout_height="60dp"
-                android:layout_marginLeft="80dp"
                 android:layout_marginStart="80dp"
+                android:layout_marginLeft="80dp"
                 android:contentDescription="@string/demoImg"
                 app:srcCompat="@drawable/demo1" />
 
@@ -83,10 +83,10 @@
                 android:id="@+id/imageView3"
                 android:layout_width="248dp"
                 android:layout_height="60dp"
-                android:layout_marginLeft="80dp"
                 android:layout_marginStart="80dp"
-                app:srcCompat="@drawable/demo2"
-                android:contentDescription="@string/demoImg" />
+                android:layout_marginLeft="80dp"
+                android:contentDescription="@string/demoImg"
+                app:srcCompat="@drawable/demo2" />
 
             <TextView
                 android:id="@+id/textView6"
@@ -98,10 +98,10 @@
                 android:id="@+id/imageView4"
                 android:layout_width="248dp"
                 android:layout_height="60dp"
-                android:layout_marginLeft="80dp"
                 android:layout_marginStart="80dp"
-                app:srcCompat="@drawable/demo3"
-                android:contentDescription="@string/demoImg" />
+                android:layout_marginLeft="80dp"
+                android:contentDescription="@string/demoImg"
+                app:srcCompat="@drawable/demo3" />
 
             <TextView
                 android:id="@+id/textView7"
@@ -113,10 +113,10 @@
                 android:id="@+id/imageView5"
                 android:layout_width="248dp"
                 android:layout_height="60dp"
-                android:layout_marginLeft="80dp"
                 android:layout_marginStart="80dp"
-                app:srcCompat="@drawable/demo4"
-                android:contentDescription="@string/demoImg" />
+                android:layout_marginLeft="80dp"
+                android:contentDescription="@string/demoImg"
+                app:srcCompat="@drawable/demo4" />
 
             <TextView
                 android:id="@+id/textView8"
