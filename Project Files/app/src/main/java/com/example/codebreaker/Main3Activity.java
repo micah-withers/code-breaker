@@ -440,7 +440,12 @@ public class Main3Activity extends AppCompatActivity {
             setCheckButton(row);
         }
         else {
+            for (View codeBox :
+                    codeBoxes) {
+                codeBox.setVisibility(View.VISIBLE);
+            }
             System.out.println("row exceeds nRows");
+            System.out.println("User failed to guess code");
         }
     }
 
