@@ -18,7 +18,7 @@ public class Main3Activity extends AppCompatActivity {
 
     com.example.codebreaker.databinding.ActivityMain3Binding binding;
     private ArrayList<Integer> pegCode, userCode, feedback;
-    private ArrayList<View> pegList, boxes, fbList;
+    private ArrayList<View> pegList, boxes, fbList, codeBoxes;
     private ArrayList<Button> checks;
     private int currentRow, nRows, boxesFilled, boxesPerRow, nPegs;
     private DragAndDrop pegCarrier;
@@ -41,7 +41,7 @@ public class Main3Activity extends AppCompatActivity {
         return dropValue;
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,6 +54,7 @@ public class Main3Activity extends AppCompatActivity {
         boxes = new ArrayList<>();
         checks = new ArrayList<>();
         fbList = new ArrayList<>();
+        codeBoxes = new ArrayList<>();
         currentRow = 0;
         nRows = 10;
         boxesPerRow = 4;
@@ -61,15 +62,15 @@ public class Main3Activity extends AppCompatActivity {
         boxesFilled = 0;
         boxStatuses = new boolean[boxesPerRow];
 
-        for (int i = 0; i < boxesPerRow; ++i) {
-            userCode.add(-1);
-        }
+        for (int i = 0; i < boxesPerRow; ++i) { //  Initializes ArrayList of user-chosen pegs
+            userCode.add(-1);                   //      0:red, 1:pink, 2:orange, 3:yellow,
+        }                                       //      4:green, 5:blue
 
-        for (int i = 0; i < boxesPerRow; ++i) {
+        for (int i = 0; i < boxesPerRow; ++i) { //  Initializes ArrayList of feedback pegs (-1 is none, 0 is white, 1 is red)
             feedback.add(-1);
         }
 
-        for (int i = 0; i < boxesPerRow; ++i) {
+        for (int i = 0; i < boxesPerRow; ++i) { //  Initializes array of box status (false:peg not set, true:peg set)
             boxStatuses[i] = false;
         }
 
@@ -91,12 +92,12 @@ public class Main3Activity extends AppCompatActivity {
         bindFeedback();
         generateCode();
 
-        for (View v: boxes) {
+        for (View v: boxes) {       //  Makes inactive boxes untouchable by user
             v.setBackground(null);
             v.setVisibility(View.GONE);
         }
 
-        checks.add(binding.check1);
+        checks.add(binding.check1); // Adds check-mark views to ArrayList
         checks.add(binding.check2);
         checks.add(binding.check3);
         checks.add(binding.check4);
@@ -107,22 +108,15 @@ public class Main3Activity extends AppCompatActivity {
         checks.add(binding.check9);
         checks.add(binding.check10);
 
-        for (Button check : checks) {
+        for (Button check : checks) {   //  Makes all checks untouchable
             check.setVisibility(View.GONE);
         }
-
-        binding.taskBar1.setOnClickListener(new MyClickListener());
-        binding.taskBar2.setOnClickListener(new MyClickListener());
-        binding.taskBar3.setOnClickListener(new MyClickListener());
-        binding.taskBar4.setOnClickListener(new MyClickListener());
-        binding.taskBar5.setOnClickListener(new MyClickListener());
-        binding.taskBar6.setOnClickListener(new MyClickListener());
 
         setDropListeners(currentRow);
         setContentView(view);
     }
 
-    private void bindBoxes() {
+    private void bindBoxes() {      //  Adds all boxes to ArrayList (including code boxes)
         boxes.add(binding.box11);
         boxes.add(binding.box12);
         boxes.add(binding.box13);
@@ -172,9 +166,14 @@ public class Main3Activity extends AppCompatActivity {
         boxes.add(binding.box102);
         boxes.add(binding.box103);
         boxes.add(binding.box104);
+
+        codeBoxes.add(binding.code1);
+        codeBoxes.add(binding.code2);
+        codeBoxes.add(binding.code3);
+        codeBoxes.add(binding.code4);
     }
 
-    private void bindFeedback() {
+    private void bindFeedback() {   //  Adds all feedback boxes to ArrayList
         fbList.add(binding.fb11);
         fbList.add(binding.fb12);
         fbList.add(binding.fb13);
@@ -226,9 +225,11 @@ public class Main3Activity extends AppCompatActivity {
         fbList.add(binding.fb104);
     }
 
+    //  Generates 4 random integers (range 0-5) to index in pegList and add to pegCode
+    //  Adds pegs to ArrayList and initializes Click Listeners
+    //  Assigns colored pegs to code boxes and makes them invisible
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void generateCode() {
-        // TODO : generate 4 random integers (0-5) to index in pegList and add to pegCode
-        //peg list has all the colors, so the for loop, put i in the for loop and will be the index of the new list created
         pegList.add(binding.taskBar1);
         pegList.add(binding.taskBar2);
         pegList.add(binding.taskBar3);
@@ -236,9 +237,39 @@ public class Main3Activity extends AppCompatActivity {
         pegList.add(binding.taskBar5);
         pegList.add(binding.taskBar6);
 
+        for (View v :
+                pegList) {
+            v.setOnClickListener(new MyClickListener());
+        }
+
+        for (View v :
+                codeBoxes) {
+            v.setVisibility(View.INVISIBLE);
+        }
+
         for(int i = 0; i < boxesPerRow; i ++) {
-//            int randomNum = (int)(Math.random() *6);
-            pegCode.add((int)(Math.random() *6));
+            int randomNum = (int)(Math.random() *6);
+            pegCode.add(randomNum);
+            switch (randomNum) {
+                case 0:
+                    codeBoxes.get(i).setBackground(getDrawable(R.drawable.red_in));
+                    break;
+                case 1:
+                    codeBoxes.get(i).setBackground(getDrawable(R.drawable.pink_in));
+                    break;
+                case 2:
+                    codeBoxes.get(i).setBackground(getDrawable(R.drawable.orange_in));
+                    break;
+                case 3:
+                    codeBoxes.get(i).setBackground(getDrawable(R.drawable.yellow_in));
+                    break;
+                case 4:
+                    codeBoxes.get(i).setBackground(getDrawable(R.drawable.green_in));
+                    break;
+                case 5:
+                    codeBoxes.get(i).setBackground(getDrawable(R.drawable.blue_in));
+                    break;
+            }
         }
         for (int i = 0; i < pegCode.size(); ++i) {
             if (i > 0) {
@@ -249,16 +280,19 @@ public class Main3Activity extends AppCompatActivity {
         System.out.println();
     }
 
+    //  Returns ArrayList of feedback values (integers)
     @SuppressWarnings("unchecked")
     public ArrayList<Integer> getFeedback() {
         return (ArrayList<Integer>) feedback.clone();
     }
 
+    //  Returns ArrayList of peg code values (integers)
     @SuppressWarnings("unchecked")
     public ArrayList<Integer> getPegCode() {
         return (ArrayList<Integer>) pegCode.clone();
     }
 
+    //  Turns highlight on and off for active row
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void toggleHighlight() {
         int boxIndex = currentRow*boxesPerRow;
@@ -274,6 +308,7 @@ public class Main3Activity extends AppCompatActivity {
         }
     }
 
+    //  Returns true if user code is equivalent to game code
     private boolean checkUserCode() {
         for (int i = 0; i < boxesPerRow; ++i) {
             if (!userCode.get(i).equals(pegCode.get(i))) {
@@ -283,6 +318,7 @@ public class Main3Activity extends AppCompatActivity {
         return true;
     }
 
+    //  Returns the number of instances of the passed integer value exist in the passed ArrayList
     private int count(ArrayList<Integer> array, int value) {
         int count = 0;
         for (int i:
@@ -294,33 +330,37 @@ public class Main3Activity extends AppCompatActivity {
         return count;
     }
 
+    //  Give appropriate feedback to user:
+    //      Red: user places correct colored peg in the correct position
+    //      White: user places correct colored peg in an incorrect position
+    //      None: user places an incorrect colored peg (not part of the code)
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void getFeedback(int row) {
-        int[] pegsUsed = new int[nPegs];
+        int[] pegsUsed = new int[nPegs];    //  To contain number of each colored peg used
         int fbIndex = 0;
-        for (int i = 0; i < nPegs; ++i) {
+        for (int i = 0; i < nPegs; ++i) {   //  Counts number of times each peg is used
             pegsUsed[i] = count(pegCode, i);
         }
-        for (int i = 0; i < boxesPerRow; ++i) {
+        for (int i = 0; i < boxesPerRow; ++i) { //  Resets feedback to -1 (no correct pegs)
             feedback.set(i, -1);
         }
-        for (int i = 0; i < boxesPerRow; ++i) {
-            int value = pegCode.get(i);
-            if (value == userCode.get(i)) {
+        for (int i = 0; i < boxesPerRow; ++i) { //  Checks for correct color in correct position
+            int value = pegCode.get(i);         //      subtracts 1 from the corresponding peg's
+            if (value == userCode.get(i)) {     //      count in pegsUsed if correct
                 feedback.set(fbIndex, 1);
                 --pegsUsed[value];
                 ++fbIndex;
             }
         }
-        for (int i = 0; i < boxesPerRow; ++i) {
-            int value = userCode.get(i);
-            if (value != pegCode.get(i) && pegsUsed[value] > 0) {
+        for (int i = 0; i < boxesPerRow; ++i) {                     //  Checks for correct color in incorrect position
+            int value = userCode.get(i);                            //      subtracts 1 from the corresponding peg's
+            if (value != pegCode.get(i) && pegsUsed[value] > 0) {   //      count in pegsUsed if correct
                 feedback.set(fbIndex, 0);
                 --pegsUsed[value];
                 ++fbIndex;
             }
         }
-        for (int i = 0; i < feedback.size(); ++i) {
+        for (int i = 0; i < feedback.size(); ++i) {     //  Prints feedback results to console
             if (i>0) {
                 System.out.print(", ");
             }
@@ -328,7 +368,7 @@ public class Main3Activity extends AppCompatActivity {
         }
         System.out.println();
         int startIndex = boxesPerRow*row;
-        for (int i = startIndex; i < startIndex+boxesPerRow; ++i) {
+        for (int i = startIndex; i < startIndex+boxesPerRow; ++i) {     //  Applies colored pegs to feedback boxes
             switch (feedback.get(i % boxesPerRow)) {
                 case 1:
                     fbList.get(i).setBackground(getDrawable(R.drawable.fb_red));
@@ -340,6 +380,8 @@ public class Main3Activity extends AppCompatActivity {
         }
     }
 
+    //  Activates the check button if the passed row and deactivates and removes that of the
+    //      previous row. It remains invisible until all boxes in the row are filled.
     private void setCheckButton(final int row) {
         if (row > 0) {
             nullCheckButton(row - 1);
@@ -357,6 +399,10 @@ public class Main3Activity extends AppCompatActivity {
                     if (checkUserCode()) {
                         nullDropListeners(currentRow);
                         nullCheckButton(currentRow);
+                        for (View codeBox :
+                                codeBoxes) {
+                            codeBox.setVisibility(View.VISIBLE);
+                        }
                         System.out.println("User guessed correctly");
                         return;
                     }
@@ -371,12 +417,14 @@ public class Main3Activity extends AppCompatActivity {
         });
     }
 
+    //  Removes the Click Listener from the passed row
     private void nullCheckButton(int row) {
         Button oldCheck = checks.get(row);
         oldCheck.setOnClickListener(null);
         System.out.println("Check removed row=" + row);
     }
 
+    //  Activates boxes of passed row and deactivates those of the previous row
     private void setDropListeners(int row) {
         if (row > 0) {
             nullDropListeners(row-1);
@@ -392,10 +440,16 @@ public class Main3Activity extends AppCompatActivity {
             setCheckButton(row);
         }
         else {
+            for (View codeBox :
+                    codeBoxes) {
+                codeBox.setVisibility(View.VISIBLE);
+            }
             System.out.println("row exceeds nRows");
+            System.out.println("User failed to guess code");
         }
     }
 
+    //  Removes Click (Drop) Listeners of passed row
     private void nullDropListeners(int row) {
         int startIndex = row*boxesPerRow;
         for (int i = startIndex; i < startIndex+boxesPerRow; ++i) {
@@ -412,8 +466,8 @@ public class Main3Activity extends AppCompatActivity {
         System.out.println("Drag listeners null. row=" + row);
     }
 
+    //  Click Listener for pegs in taskbar for user to choose from
     private class MyClickListener implements View.OnClickListener {
-//        @RequiresApi(api = Build.VERSION_CODES.N)
         @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
         public void onClick(View v) {
             pegCarrier = new DragAndDrop(v.getBackground(), pegList.indexOf(v));
@@ -421,6 +475,8 @@ public class Main3Activity extends AppCompatActivity {
         }
     }
 
+    //  Makeshift class to contain a drawable as selected by user and sets the background
+    //      of drop boxes when they are clicked
     private class DragAndDrop {
         private Drawable background;
         private int pegIndex;
@@ -440,21 +496,21 @@ public class Main3Activity extends AppCompatActivity {
         }
     }
 
+    //  Class to listen for user clicks. Background is set to the background data member in pegCarrier
     private class MyDropListener implements View.OnClickListener {
         private boolean hasPeg = false;
         @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
         public void onClick(View v) {
-            if (dragValue) {
-
-                v.setBackground(pegCarrier.getBackground());
+            if (dragValue) {                                    //  If a peg has been clicked on the taskbar:
+                v.setBackground(pegCarrier.getBackground());    //      Background is set, dropped is true, drag is false
                 dropValue = true;
                 dragValue = false;
-                boxStatuses[boxes.indexOf(v) % boxesPerRow] = true;
+                boxStatuses[boxes.indexOf(v) % boxesPerRow] = true; //  Status of box in position relative to current row is true (has a peg)
                 userCode.set(boxes.indexOf(v) % boxesPerRow, pegCarrier.getPegIndex());    // Adds selected peg to userCode at index of box relative to current row
-                if (!hasPeg) {
+                if (!hasPeg) {          //  If box did not previously hold a peg, adds to number of boxes in the row filled
                     hasPeg = true;
                     ++boxesFilled;
-                    if (boxesFilled == boxesPerRow) {
+                    if (boxesFilled == boxesPerRow) {           //  Check box for current row is revealed if all four boxes have pegs
                         View check = checks.get(currentRow);
                         check.setVisibility(View.VISIBLE);
                     }
