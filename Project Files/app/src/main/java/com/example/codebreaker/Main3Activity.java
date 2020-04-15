@@ -14,6 +14,7 @@ import android.widget.Button;
 import com.example.codebreaker.databinding.ActivityMain3Binding;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Main3Activity extends AppCompatActivity {
 
@@ -482,7 +483,7 @@ public class Main3Activity extends AppCompatActivity {
     private class MyClickListener implements View.OnClickListener {
         @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
         public void onClick(View v) {
-            pegCarrier = new DragAndDrop(v.getBackground(), pegList.indexOf(v));
+            pegCarrier = new DragAndDrop(pegList.indexOf(v));
             toggleHighlight();
         }
     }
@@ -490,18 +491,15 @@ public class Main3Activity extends AppCompatActivity {
     //  Makeshift class to contain a drawable as selected by user and sets the background
     //      of drop boxes when they are clicked
     private class DragAndDrop {
-        private Drawable background;
         private int pegIndex;
-        private DragAndDrop(Drawable background, int pegIndex) {
+        @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+        private DragAndDrop(int pegIndex) {
             dropValue = false;
             dragValue = true;
-            this.background = background;
+
             System.out.println("DragAndDrop created");
             this.pegIndex = pegIndex;
             System.out.println("Peg selected: "+pegIndex);
-        }
-        private Drawable getBackground() {
-            return background;
         }
         private int getPegIndex() {
             return pegIndex;
@@ -513,8 +511,27 @@ public class Main3Activity extends AppCompatActivity {
         private boolean hasPeg = false;
         @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
         public void onClick(View v) {
-            if (dragValue) {                                    //  If a peg has been clicked on the taskbar:
-                v.setBackground(pegCarrier.getBackground());    //      Background is set, dropped is true, drag is false
+            if (dragValue) {                            //  If a peg has been clicked on the taskbar:
+                switch(pegCarrier.getPegIndex()) {      //  Background is set, dropped is true, drag is false
+                    case 0:
+                        v.setBackground(getDrawable(R.drawable.red_in));
+                        break;
+                    case 1:
+                        v.setBackground(getDrawable(R.drawable.pink_in));
+                        break;
+                    case 2:
+                        v.setBackground(getDrawable(R.drawable.orange_in));
+                        break;
+                    case 3:
+                        v.setBackground(getDrawable(R.drawable.yellow_in));
+                        break;
+                    case 4:
+                        v.setBackground(getDrawable(R.drawable.green_in));
+                        break;
+                    case 5:
+                        v.setBackground(getDrawable(R.drawable.blue_in));
+                        break;
+                }
                 dropValue = true;
                 dragValue = false;
                 boxStatuses[boxes.indexOf(v) % boxesPerRow] = true; //  Status of box in position relative to current row is true (has a peg)
