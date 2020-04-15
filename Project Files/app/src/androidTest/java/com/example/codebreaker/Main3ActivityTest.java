@@ -217,6 +217,8 @@ public class Main3ActivityTest {
         for (int i = 0; i < feedback.size(); ++i) {
             assertEquals(1, (int) feedback.get(i));
         }
+        onView(withId(R.id.button2))
+                .check(matches(isDisplayed()));
     }
 
 }
